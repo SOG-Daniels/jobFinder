@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Job Finder</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- sweet alert for notifications-->
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Job Finder</a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="index.html">Home</a></li>
+              <li><a href="#">My Vacancies</a></li>
+              <li><a href="post-vacancy.html">Post Vacancies</a></li>
+              <li><a href="#">Work History</a></li>
+              <li><a href="#">My Profile</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+              <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+
+    
+            <div class="row">
+	    
+                    <div class="col-md-8 col-md-offset-2">
+                        
+                        <h1>Create Post</h1>
+                        
+                        <form>
+                                                        
+                            <div class="form-group">
+                                <label for="title">Title <span class="require">*</span></label>
+                                <input type="text" class="form-control" name="title" />
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <textarea rows="5" class="form-control" name="description" ></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="title">Estimated Time: <span class="require">*</span></label>
+                                <input type="text" class="form-control" name="title" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="title">Availale Date: <span class="require">*</span></label>
+                                <input type="text" class="form-control" name="title" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="title">Availale Time: <span class="require">*</span></label>
+                                <input type="text" class="form-control" name="title" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="title">Payment: <span class="require">*</span></label>
+                                <input type="text" class="form-control" name="title" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="title">Location: <span class="require">*</span></label>
+                                <input type="text" class="form-control" name="title" />
+                            </div>
+                            
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">
+                                    Create
+                                </button>
+                                <button class="btn btn-default">
+                                    Cancel
+                                </button>
+                            </div>
+                            
+                        </form>
+                    </div>
+                    
+                </div>
+        
+    </div>
+        <script>
+            //display more info expansion
+            $('.info').click(function(e){
+                let parent = e.target.closest('.card').cloneNode(true);
+                let childNode = parent.childNodes;
+                childNode = childNode[5];
+                parent.removeChild(childNode);
+                parent.childNodes[1].classList.add('font-large');
+                parent.childNodes[3].classList.add('font-medium');
+                console.log(parent.childNodes);
+                parent.classList.add('alertBox');
+                Swal.fire({
+                    html: parent,
+                    width: '500px'
+                });
+            });
+            //create post alert
+
+            var user = new User("fehr");
+            var sys = new System(user);
+        </script>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+  </body>
+</html>
