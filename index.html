@@ -1,137 +1,77 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Job Finder</title>
 
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="main.css"><!-- 
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Job Finder</title>
+
+  <!-- Bootstrap -->
+  <!-- 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="main.css">
 
-    
-   
-  </head>
-  <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-blue">
-  <a class="navbar-brand" href="#">
-    <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40" height="40" class="rounded-circle">
-  </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto align-middle">
-      <li class="nav-item active">
-        <a class="nav-link " href="#"><i class="fa fa-home"></i>Home </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#"><i class="fa fa-home"></i>My Vacanies</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#"><i class="fa fa-home"></i>Post Vacancy</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#"><i class="fa fa-home"></i>Work History</a>
-      </li>
-      <hr>
-      <li class="nav-item">
-        <a class="nav-link" href="#"><i class="fa fa-profile"></i>My profile</a>
-      </li>
-       <li class="nav-item">
-        <a class="nav-link" href="#"><i class="fa fa-sign-out"></i>Sign Out</a>
-      </li>
-    </ul>
-  
-  </div>
-</nav>
-    <body>
-    
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <div class="row">
-                    <div class="col-md-4">
-                        <form action="" class="search-form">
-                            <div class="form-group has-feedback">
-                                <label for="search" class="sr-only">Search</label>
-                                <input type="text" class="form-control" name="search" id="search" placeholder="search" autocomplete="off">
-                                    
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        
-                    </div>
-                </div>
 
-                
-            </div>
+</head>
+
+<body class="bg-darkish-blue">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center">Sign In</h5>
+            <hr>
+            <form class="form-signin">
+              <div class="form-label-group">
+                <label for="inputEmail">Email address</label>
+                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+              </div>
+
+              <div class="form-label-group">
+                <label for="inputPassword">Password</label>
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+              </div>
+
+              <div class="custom-control custom-checkbox mb-3">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1">Remember password</label>
+              </div>
+              <button class="btn btn-light bg-darkish-blue btn-block text-uppercase" type="submit">Sign in</button>
+              <hr class="my-4">
+              <div class="form-group">
+                  <p class="text-center">Don't have account? <a href="signUp.html" id="signup">Sign up here</a></p>
+               </div> 
+            </form>
+          </div>
         </div>
-        <!--search bar-->
-           
-
-
-        <div class="card" style="width: 18rem;">
-            <div class="card-header">
-                <div class="user-icon"></div>
-                <h4 class="job-type">Painter</h4>
-                
-            </div>
-            <div class="card-body">
-                <p class="card-text"><strong>Job Description:</strong><span> Some quick example text to build on the card title and make up the bulk of the card's content.</span></p>
-                <p class="card-text"><strong>Payment:</strong><span> $40</span></p>
-                <p class="card-text"><strong>Location:</strong><span> 25 Apple str.</span></p>
-            </div>
-            <div class="card-footer">
-                    <a class="btn btn-info btn-sm info" >
-                        <span class="glyphicon glyphicon-info-sign"></span> Info
-                    </a>
-                    <a href="#" class="btn btn-info btn-sm">
-                        Apply Now
-                    </a>
-            </div>
-        </div>
-
-        
+      </div>
     </div>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="main.js"></script>
-    <!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script> -->
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script> -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-    <script>
+    <!--search bar-->
+  </div>
 
-            //display more info expansion
-            $('.info').click(function(e){
-                let parent = e.target.closest('.card').cloneNode(true);
-                let childNode = parent.childNodes;
-                childNode = childNode[5];
-                parent.removeChild(childNode);
-                parent.childNodes[1].classList.add('font-large');
-                parent.childNodes[3].classList.add('font-medium');
-                console.log(parent.childNodes);
-                parent.classList.add('alertBox');
-                Swal.fire({
-                    html: parent,
-                    width: '500px'
-                });
-            });
-            //create post alert
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="main.js"></script>
+  <!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script> -->
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script> -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+  <script src="myjQuery.js"></script>
+</body>
 
-            var user = new User("fehr");
-            var sys = new System(user);
-        </script>
-  </body>
 </html>
