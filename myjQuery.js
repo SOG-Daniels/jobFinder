@@ -20,17 +20,19 @@ Swal.fire({
 $('#submit').on('click',function(){
     let email = document.getElementById('inputEmail').value;
     let pass = document.getElementById('inputPassword').value;
-
+    localStorage.clear();
     let sys = new System(null);
-    let user = sys.getUser(email,pass);
+    let user = sys.findUser(email,pass);
     if(user == null)
     {
       $('#signInError').html("Invalid credentials! Please try again.");
       $('#signInError').show();
     }
     else{
-        localStorage.setItem('SystemObjectData',JSON.stringify(sys));
-        location.assign("home.html");
+      
+      localStorage.setItem('SystemObjectData',JSON.stringify(sys));
+      localStorage.setItem('User',JSON.stringify(user));
+      location.assign("home.html");
     }
   });
 
@@ -60,7 +62,7 @@ $('#register').on('click',function(){
     let newUser = [sys.getNumberOfUsers(),name,email,pass];
     sys.addNewUser(newUser);
     localStorage.setItem('SystemObjectData',JSON.stringify(sys));
-    let user = sys.getUser(email,pass);
+    let user = sys.findUser(email,pass);
     localStorage.setItem('User',JSON.stringify(user));
     location.assign("home.html");
 

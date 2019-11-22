@@ -1,44 +1,87 @@
 class User{
     constructor(userData)
     {
-        this.userInfo = 
-        [
-            [
-                userData[0],
-                userData[1],
-                userData[2],
-                userData[3]
-            ]
-        ];
-
-        this.workHistory = [
-            [
-                0,
-                "Painting:",
-                "I need help painting my room",
-                "$40",
-                "25 albert st."
-            ]
-        ];
-        this.activeJobs =[
-            [
-                0,
-                "Painting:",
-                "I need help painting my room",
-                "$40",
-                "25 albert st."
-            ]
-        ];
-        this.jobsTaken = [
-            [
-                0,
-                "Painting:",
-                "I need help painting my room",
-                "$40",
-                "25 albert st."
-            ]
-        ];
-        
+        if(userData.activeJobs != null)
+        {
+            this.userInfo = userData.userInfo;
+            this.workHistory = userData.workHistory;
+            this.activeJobs = userData.activeJobs;
+            this.jobsTaken = userData.jobsTaken;
+        }
+        else if(userData == null)
+        {
+            this.userInfo = [
+                [
+                    0,
+                    "DefaultName",
+                    "DefaultEmail",
+                    "DefaultPassword"
+                ]
+            ];
+            this.workHistory = [
+                [
+                    0,
+                    "Painting:",
+                    "I need help painting my room",
+                    "$40",
+                    "25 albert st."
+                ]
+            ];
+            this.activeJobs =[
+                [
+                    0,
+                    "Painting:",
+                    "I need help painting my room",
+                    "$40",
+                    "25 albert st."
+                ]
+            ];
+            this.jobsTaken = [
+                [
+                    0,
+                    "Painting:",
+                    "I need help painting my room",
+                    "$40",
+                    "25 albert st."
+                ]
+            ];
+        }else if(userData[2] != null){
+            this.userInfo = [
+                [
+                    userData[0],//user id
+                    userData[1],//user name
+                    userData[2],//user email
+                    userData[3]//user pass
+                ]
+            ];
+            this.workHistory = [
+                [
+                    0,
+                    "Painting:",
+                    "I need help painting my room",
+                    "$40",
+                    "25 albert st."
+                ]
+            ];
+            this.activeJobs =[
+                [
+                    0,
+                    "Painting:",
+                    "I need help painting my room",
+                    "$40",
+                    "25 albert st."
+                ]
+            ];
+            this.jobsTaken = [
+                [
+                    0,
+                    "Painting:",
+                    "I need help painting my room",
+                    "$40",
+                    "25 albert st."
+                ]
+            ];
+        }
     }
     getInfo()// TEST FUNCTION
     {
@@ -80,25 +123,52 @@ class System{
             //home page posts
             this.postData = [
                 [
-                    0,
-                    "Painting:",
-                    "I need help painting my room",
-                    "$40",
-                    "25 albert st."
+                    1,//post id
+                    1,//user id
+                    "Painting:",//title
+                    "I need help painting my room",//description
+                    40,//payment
+                    "25 albert st.",//location
+                    3,//hours
+                    "8:00",//avaialble time
+                    "24/10/2019",//AVIALABLE DATE
+
                 ],
                 [
-                    1,
-                    "Painting:",
-                    "I need help painting my room",
-                    "$40",
-                    "25 albert st."
+                    2,//post id
+                    0,//user id
+                    "Painting:",//title
+                    "I need help painting my room",//description
+                    40,//payment
+                    "25 albert st.",//location
+                    3,//hours
+                    "8:00",//avaialble time
+                    "24/10/2019",//AVIALABLE DATE
+                    
                 ],
                 [
-                    2,
-                    "Painting:",
-                    "I need help painting my room",
-                    "$40",
-                    "25 albert st."
+                    3,//post id
+                    0,//user id
+                    "Painting:",//title
+                    "I need help painting my room",//description
+                    40,//payment
+                    "25 albert st.",//location
+                    3,//hours
+                    "8:00",//avaialble time
+                    "24/10/2019",//AVIALABLE DATE
+                    
+                ],
+                [
+                    4,//post id
+                    1,//user id
+                    "Painting:",//title
+                    "I need help painting my room",//description
+                    40,//payment
+                    "25 albert st.",//location
+                    3,//hours
+                    "8:00",//avaialble time
+                    "24/10/2019",//AVIALABLE DATE
+                    
                 ]
             ];
     
@@ -124,6 +194,17 @@ class System{
             this.allUsers = sys.allUsers;
         }
                
+    }
+    getUserNameById(id)
+    {
+        for (let index = 0; index < this.allUsers.length; index++) {
+            let userInfo = this.allUsers[index];
+            if(userInfo[0] == id)
+            {
+                return userInfo[1];
+            }
+            
+        }
     }
 
     getNumberOfUsers()
@@ -164,7 +245,7 @@ class System{
             console.log("Post was not created! :function[createPost->system]");
         }
     }
-    getUser(email,pass)//gets the user that is stored in the database
+    findUser(email,pass)//gets the user that is stored in the database
     {
         for (let index = 0; index < this.allUsers.length; index++) {
             let user = this.allUsers[index];
@@ -180,20 +261,14 @@ class System{
     {
         return this.postData;
     }
-    //must set user in the login page/ sets the datamember [user]
-    setUser(email,pass)
+    getUser()
     {
-        let user = this.getUser(email,pass);
-        if(user !== null)
-        {
-            this.user = user;
-            console.log("User has been set: function[setUser->system]")
-            return true;
-        }
-        else{
-            console.log("Fail to set user: function[setUser->system]");
-            return false;
-        }
+        return this.user;
+    }
+    //must set user in the login page/ sets the datamember [user]
+    setUser(user)
+    {
+        this.user = user;
     }
 
     getUserWorkHistory()

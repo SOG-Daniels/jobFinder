@@ -297,35 +297,6 @@
         <div class="row">
           <div class="col">
             <div class="card-columns" id="cardColumn">
-              <div class="card">
-                <div class="card-header">
-                  <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg"
-                    width="40" height="40" class="rounded-circle">
-                  <a href="#" class="btn btn-link color-black" id=""><u>User Name</u></a>
-                  <span class="btn btn-light float-right bg-darkish-blue"><i class="fa fa-comments-o fa-2x"></i></span>
-                </div>
-                <div class="card-body">
-                  <h4 class="card-title">Painting</h4>
-                  <hr>
-                  <label for="jobDescription" class="font-weight-bold">Job Description: </label>
-                  <p class="card-text " id="jobDescription"> Some quick example text to build on the card title and make
-                    up the bulk of the card's content.</p>
-                  <label for="payment" class="font-weight-bold">Payment: </label>
-                  <p class="card-text" id="payment"> $40</p>
-
-                  <label for="location" class="font-weight-bold d-block">Location: </label>
-                  <p class="card-text" id="location">25 Apple str.</p>
-
-                  <a href="#" class="btn btn-light rounded info bg-darkish-blue" data-toggle="modal"
-                    data-target="#show-info">
-                    <i class="fa fa-info fa-lg"></i>
-                  </a>
-                  <a href="#" class="btn btn-light float-right bg-darkish-blue" data-toggle="modal"
-                    data-target="#success">
-                    Apply Now
-                  </a>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -334,92 +305,96 @@
       //load posts
       var system = new System(JSON.parse(localStorage.getItem('SystemObjectData')));
       var user = new User(JSON.parse(localStorage.getItem('User')));
-      console.log("system object: ");
-      console.log(system);
-      console.log("User object");
-      console.log(user);
-
-
-      //create new card
-      var cardColumn = document.getElementById("cardColumn");
-        //card
-      var card = document.createElement("div");
-      card.setAttribute("class","card");
-      //hard header
-      var cardHeader = document.createElement("div");
-      cardHeader.setAttribute("class","card-header");
-      var userImage = document.createElement("img");
-      userImage.setAttribute("src","https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg");
-      userImage.setAttribute("class","rounded-circle");
-      userImage.width = "40";
-      userImage.height = "40";
-      cardHeader.appendChild(userImage);
-      var userNameLink = document.createElement("a");
-      userNameLink.setAttribute("class","btn btn-link color-black");
-      var userName = document.createElement("u");
-      userNameLink.appendChild(userName);
-      cardHeader.appendChild(userNameLink);
-      userName.innerHTML = "Fehr Faber";
-      var spanMessage = document.createElement("span");
-      spanMessage.setAttribute("class","btn btn-light float-right bg-darkish-blue");
-      var messageIcon = document.createElement("i");
-      messageIcon.setAttribute("class","fa fa-comments-o fa-2x");
-      spanMessage.appendChild(messageIcon);
-      cardHeader.appendChild(spanMessage);
-      card.appendChild(cardHeader);
-      //card body
-      var cardBody =  document.createElement("div");
-      cardBody.setAttribute("class","card-body");
-      var cardTitle = document.createElement("h4");
-      cardTitle.setAttribute("class","card-title");
-      cardTitle.innerHTML = "Relocation";
-      cardBody.appendChild(cardTitle);
-      var hr = document.createElement("hr");
-      cardBody.appendChild(hr);                 
-      var jobDescriptionLabel = document.createElement("label");
-      jobDescriptionLabel.setAttribute("for","jobDescription")
-      jobDescriptionLabel.setAttribute("class","font-weight-bold")
-      jobDescriptionLabel.innerHTML = "Job Description:";
-      cardBody.appendChild(jobDescriptionLabel);
-      var jobDescription = document.createElement("p");
-      jobDescription.setAttribute("class","card-text");
-      jobDescription.innerHTML = "Some quick example text to build on the card title and make up the bulk of the card's content.";
-      cardBody.appendChild(jobDescription);
-      var PaymentLabel = document.createElement("label");
-      PaymentLabel.setAttribute("for","Payment")
-      PaymentLabel.setAttribute("class","font-weight-bold")
-      PaymentLabel.innerHTML = "Payment:";
-      cardBody.appendChild(PaymentLabel);
-      var payment =document.createElement("p");
-      payment.setAttribute("class","card-text");
-      payment.innerHTML = "$40";
-      cardBody.appendChild(payment);
-      var locationLabel = document.createElement("label");
-      locationLabel.setAttribute("for","location");
-      locationLabel.setAttribute("class","font-weight-bold");
-      locationLabel.innerHTML = "Location:";
-      cardBody.appendChild(locationLabel);
-      var lc = document.createElement("p");
-      lc.setAttribute("class","card-text");
-      lc.innerHTML = "25 Apple str";
-      cardBody.appendChild(lc);
-      var infoLink = document.createElement("a");
-      infoLink.setAttribute("class","btn btn-light rounded info bg-darkish-blue");
-      infoLink.setAttribute("data-toggle","modal");
-      infoLink.setAttribute("data-target","#show-info");
-      var infoIcon = document.createElement("i");
-      infoIcon.setAttribute("class","fa fa-info fa-lg");
-      infoLink.appendChild(infoIcon);
-      cardBody.appendChild(infoLink);
-      var apply = document.createElement("a");
-      apply.setAttribute("class","btn btn-light float-right bg-darkish-blue");
-      apply.setAttribute("data-toggle","modal");
-      apply.setAttribute("data-target","#success");
-      apply.innerHTML = "Apply Now";
-      cardBody.appendChild(apply);
-      card.appendChild(cardBody);
-      cardColumn.appendChild(card);
-
+      system.setUser(user);
+      var userInfo = user.getInfo();
+      var allPosts = system.getAllPosts();
+      console.log(allPosts);
+      
+      for (let index = 0; index < allPosts.length; index++) {
+        //create new card
+        var cardColumn = document.getElementById("cardColumn");
+          //card
+        var card = document.createElement("div");
+        card.setAttribute("class","card");
+        card.setAttribute("id",allPosts[index][0].toString()+allPosts[index][1].toString());
+        //hard header
+        var cardHeader = document.createElement("div");
+        cardHeader.setAttribute("class","card-header");
+        var userImage = document.createElement("img");
+        userImage.setAttribute("src","https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg");
+        userImage.setAttribute("class","rounded-circle");
+        userImage.width = "40";
+        userImage.height = "40";
+        cardHeader.appendChild(userImage);
+        var userNameLink = document.createElement("a");
+        userNameLink.setAttribute("class","btn btn-link color-black");
+        var userName = document.createElement("u");
+        console.log(allPosts[index][1]);
+        userName.innerHTML = system.getUserNameById(allPosts[index][1]);
+        userNameLink.appendChild(userName);
+        cardHeader.appendChild(userNameLink);
+        
+        var spanMessage = document.createElement("span");
+        spanMessage.setAttribute("class","btn btn-light float-right bg-darkish-blue");
+        var messageIcon = document.createElement("i");
+        messageIcon.setAttribute("class","fa fa-comments-o fa-2x");
+        spanMessage.appendChild(messageIcon);
+        cardHeader.appendChild(spanMessage);
+        card.appendChild(cardHeader);
+        //card body
+        var cardBody =  document.createElement("div");
+        cardBody.setAttribute("class","card-body");
+        var cardTitle = document.createElement("h4");
+        cardTitle.setAttribute("class","card-title");
+        cardTitle.innerHTML = allPosts[index][2];
+        cardBody.appendChild(cardTitle);
+        var hr = document.createElement("hr");
+        cardBody.appendChild(hr);                 
+        var jobDescriptionLabel = document.createElement("label");
+        jobDescriptionLabel.setAttribute("for","jobDescription")
+        jobDescriptionLabel.setAttribute("class","font-weight-bold")
+        jobDescriptionLabel.innerHTML = "Job Description:";
+        cardBody.appendChild(jobDescriptionLabel);
+        var jobDescription = document.createElement("p");
+        jobDescription.setAttribute("class","card-text");
+        jobDescription.innerHTML = allPosts[index][3];
+        cardBody.appendChild(jobDescription);
+        var PaymentLabel = document.createElement("label");
+        PaymentLabel.setAttribute("for","Payment")
+        PaymentLabel.setAttribute("class","font-weight-bold")
+        PaymentLabel.innerHTML = "Payment:";
+        cardBody.appendChild(PaymentLabel);
+        var payment =document.createElement("p");
+        payment.setAttribute("class","card-text");
+        payment.innerHTML = '$'+ allPosts[index][4].toString();
+        cardBody.appendChild(payment);
+        var locationLabel = document.createElement("label");
+        locationLabel.setAttribute("for","location");
+        locationLabel.setAttribute("class","font-weight-bold");
+        locationLabel.innerHTML = "Location:";
+        cardBody.appendChild(locationLabel);
+        var lc = document.createElement("p");
+        lc.setAttribute("class","card-text");
+        lc.innerHTML = allPosts[index][5];
+        cardBody.appendChild(lc);
+        var infoLink = document.createElement("a");
+        infoLink.setAttribute("class","btn btn-light rounded info bg-darkish-blue");
+        infoLink.setAttribute("data-toggle","modal");
+        infoLink.setAttribute("data-target","#show-info");
+        var infoIcon = document.createElement("i");
+        infoIcon.setAttribute("class","fa fa-info fa-lg");
+        infoLink.appendChild(infoIcon);
+        cardBody.appendChild(infoLink);
+        var apply = document.createElement("a");
+        apply.setAttribute("class","btn btn-light float-right bg-darkish-blue");
+        apply.setAttribute("data-toggle","modal");
+        apply.setAttribute("data-target","#success");
+        apply.innerHTML = "Apply Now";
+        cardBody.appendChild(apply);
+        card.appendChild(cardBody);
+        cardColumn.appendChild(card);
+        
+      }
     </script>
   </body>
 </html>
