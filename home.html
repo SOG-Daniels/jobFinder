@@ -19,6 +19,8 @@
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="main.js"></script>
+
+       
         <!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script> -->
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script> -->
@@ -117,37 +119,37 @@
 
             <div class="form-group">
               <label for="title">Title <span class="require">*</span></label>
-              <input type="text" class="form-control" name="title">
+              <input type="text" class="form-control" name="title" id="title">
             </div>
 
             <div class="form-group">
               <label for="description">Description</label>
-              <textarea rows="5" class="form-control" name="description"></textarea>
+              <textarea rows="5" class="form-control" name="description" id="description"></textarea>
             </div>
 
             <div class="form-group">
-              <label for="title">Estimated Time: <span class="require">*</span></label>
-              <input type="text" class="form-control" name="title">
+              <label for="estimatedTime">Estimated Time: <span class="require">*</span></label>
+              <input type="text" class="form-control" name="title" id="estimatedTime">
             </div>
 
             <div class="form-group">
-              <label for="title">Availale Date: <span class="require">*</span></label>
-              <input type="text" class="form-control" name="title">
+              <label for="availableDate">Availale Date: <span class="require">*</span></label>
+              <input type="text" class="form-control" name="title" id="availableDate">
             </div>
 
             <div class="form-group">
-              <label for="title">Availale Time: <span class="require">*</span></label>
-              <input type="text" class="form-control" name="title">
+              <label for="availableTime">Availale Time: <span class="require">*</span></label>
+              <input type="text" class="form-control" name="title" id="availableTime">
             </div>
 
             <div class="form-group">
-              <label for="title">Payment: <span class="require">*</span></label>
-              <input type="text" class="form-control" name="title">
+              <label for="payment">Payment: <span class="require">*</span></label>
+              <input type="text" class="form-control" name="title" id="payment">
             </div>
 
             <div class="form-group">
-              <label for="title">Location: <span class="require">*</span></label>
-              <input type="text" class="form-control" name="title">
+              <label for="location">Location: <span class="require">*</span></label>
+              <input type="text" class="form-control" name="title" id="location">
             </div>
             <div class="form-group row">
               <div class="col-6">
@@ -155,7 +157,7 @@
               </div>
               <div class="col-6 d-flex justify-content-end">
                 <button type="button" class="btn btn-light bg-darkish-blue" data-dismiss="modal" data-toggle="modal"
-                  data-target="#success">Post</button>
+                  data-target="#success" id="postData">Post</button>
               </div>
             </div>
         </div>
@@ -292,94 +294,98 @@
       var system = new System(JSON.parse(localStorage.getItem('SystemObjectData')));
       var user = new User(JSON.parse(localStorage.getItem('User')));
       system.setUser(user);
+      console.log("home page:");
+      console.log(user);
       var userInfo = user.getInfo();
       var allPosts = system.getAllPosts();
       
       for (let index = 0; index < allPosts.length; index++) {
-        //create new card
-        var cardColumn = document.getElementById("cardColumn");
-          //card
-        var card = document.createElement("div");
-        card.setAttribute("class","card");
-        card.setAttribute("id",allPosts[index][0].toString()+"*"+allPosts[index][1].toString());
-        //hard header
-        var cardHeader = document.createElement("div");
-        cardHeader.setAttribute("class","card-header");
-        var userImage = document.createElement("img");
-        userImage.setAttribute("src","https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg");
-        userImage.setAttribute("class","rounded-circle");
-        userImage.width = "40";
-        userImage.height = "40";
-        cardHeader.appendChild(userImage);
-        var userNameLink = document.createElement("a");
-        userNameLink.setAttribute("class","btn btn-link color-black");
-        var userName = document.createElement("u");
-        userName.innerHTML = system.getUserNameById(allPosts[index][1]);
-        userNameLink.appendChild(userName);
-        cardHeader.appendChild(userNameLink);
-        
-        var spanMessage = document.createElement("span");
-        spanMessage.setAttribute("class","btn btn-light float-right bg-darkish-blue");
-        var messageIcon = document.createElement("i");
-        messageIcon.setAttribute("class","fa fa-comments-o fa-2x");
-        spanMessage.appendChild(messageIcon);
-        cardHeader.appendChild(spanMessage);
-        card.appendChild(cardHeader);
-        //card body
-        var cardBody =  document.createElement("div");
-        cardBody.setAttribute("class","card-body");
-        var cardTitle = document.createElement("h4");
-        cardTitle.setAttribute("class","card-title");
-        cardTitle.innerHTML = allPosts[index][2];
-        cardBody.appendChild(cardTitle);
-        var hr = document.createElement("hr");
-        cardBody.appendChild(hr);                 
-        var jobDescriptionLabel = document.createElement("label");
-        jobDescriptionLabel.setAttribute("for","jobDescription")
-        jobDescriptionLabel.setAttribute("class","font-weight-bold")
-        jobDescriptionLabel.innerHTML = "Job Description:";
-        cardBody.appendChild(jobDescriptionLabel);
-        var jobDescription = document.createElement("p");
-        jobDescription.setAttribute("class","card-text");
-        jobDescription.innerHTML = allPosts[index][3];
-        cardBody.appendChild(jobDescription);
-        var PaymentLabel = document.createElement("label");
-        PaymentLabel.setAttribute("for","Payment")
-        PaymentLabel.setAttribute("class","font-weight-bold")
-        PaymentLabel.innerHTML = "Payment:";
-        cardBody.appendChild(PaymentLabel);
-        var payment =document.createElement("p");
-        payment.setAttribute("class","card-text");
-        payment.innerHTML = '$'+ allPosts[index][4].toString();
-        cardBody.appendChild(payment);
-        var locationLabel = document.createElement("label");
-        locationLabel.setAttribute("for","location");
-        locationLabel.setAttribute("class","font-weight-bold");
-        locationLabel.innerHTML = "Location:";
-        cardBody.appendChild(locationLabel);
-        var lc = document.createElement("p");
-        lc.setAttribute("class","card-text");
-        lc.innerHTML = allPosts[index][5];
-        cardBody.appendChild(lc);
-        var infoLink = document.createElement("a");
-        infoLink.setAttribute("class","btn btn-light rounded info bg-darkish-blue");
-        infoLink.setAttribute("data-toggle","modal");
-        infoLink.setAttribute("data-target","#show-info");
-        var infoIcon = document.createElement("i");
-        infoIcon.setAttribute("class","fa fa-info fa-lg");
-        infoLink.appendChild(infoIcon);
-        cardBody.appendChild(infoLink);
-        var apply = document.createElement("a");
-        apply.setAttribute("class","btn btn-light float-right bg-darkish-blue Apply");
-        apply.setAttribute("data-toggle","modal");
-        apply.setAttribute("data-target","#success");
-        apply.innerHTML = "Apply Now";
-        cardBody.appendChild(apply);
-        card.appendChild(cardBody);
-        cardColumn.appendChild(card);
+        if(allPosts[index][1] != userInfo[0][0])
+        {
+          //create new card
+          var cardColumn = document.getElementById("cardColumn");
+            //card
+          var card = document.createElement("div");
+          card.setAttribute("class","card");
+          card.setAttribute("id",allPosts[index][0].toString()+"*"+allPosts[index][1].toString());
+          //hard header
+          var cardHeader = document.createElement("div");
+          cardHeader.setAttribute("class","card-header");
+          var userImage = document.createElement("img");
+          userImage.setAttribute("src","https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg");
+          userImage.setAttribute("class","rounded-circle");
+          userImage.width = "40";
+          userImage.height = "40";
+          cardHeader.appendChild(userImage);
+          var userNameLink = document.createElement("a");
+          userNameLink.setAttribute("class","btn btn-link color-black");
+          userNameLink.setAttribute("href","profile.html");
+          var userName = document.createElement("u");
+          userName.innerHTML = system.getUserNameById(allPosts[index][1]);
+          userNameLink.appendChild(userName);
+          cardHeader.appendChild(userNameLink);
+          
+          var spanMessage = document.createElement("span");
+          spanMessage.setAttribute("class","btn btn-light float-right bg-darkish-blue");
+          var messageIcon = document.createElement("i");
+          messageIcon.setAttribute("class","fa fa-comments-o fa-2x");
+          spanMessage.appendChild(messageIcon);
+          cardHeader.appendChild(spanMessage);
+          card.appendChild(cardHeader);
+          //card body
+          var cardBody =  document.createElement("div");
+          cardBody.setAttribute("class","card-body");
+          var cardTitle = document.createElement("h4");
+          cardTitle.setAttribute("class","card-title");
+          cardTitle.innerHTML = allPosts[index][2];
+          cardBody.appendChild(cardTitle);
+          var hr = document.createElement("hr");
+          cardBody.appendChild(hr);                 
+          var jobDescriptionLabel = document.createElement("label");
+          jobDescriptionLabel.setAttribute("for","jobDescription")
+          jobDescriptionLabel.setAttribute("class","font-weight-bold")
+          jobDescriptionLabel.innerHTML = "Job Description:";
+          cardBody.appendChild(jobDescriptionLabel);
+          var jobDescription = document.createElement("p");
+          jobDescription.setAttribute("class","card-text");
+          jobDescription.innerHTML = allPosts[index][3];
+          cardBody.appendChild(jobDescription);
+          var PaymentLabel = document.createElement("label");
+          PaymentLabel.setAttribute("for","Payment")
+          PaymentLabel.setAttribute("class","font-weight-bold")
+          PaymentLabel.innerHTML = "Payment:";
+          cardBody.appendChild(PaymentLabel);
+          var payment =document.createElement("p");
+          payment.setAttribute("class","card-text");
+          payment.innerHTML = '$'+ allPosts[index][4].toString();
+          cardBody.appendChild(payment);
+          var locationLabel = document.createElement("label");
+          locationLabel.setAttribute("for","location");
+          locationLabel.setAttribute("class","font-weight-bold");
+          locationLabel.innerHTML = "Location:";
+          cardBody.appendChild(locationLabel);
+          var lc = document.createElement("p");
+          lc.setAttribute("class","card-text");
+          lc.innerHTML = allPosts[index][5];
+          cardBody.appendChild(lc);
+          var infoLink = document.createElement("a");
+          infoLink.setAttribute("class","btn btn-light rounded info bg-darkish-blue");
+          infoLink.setAttribute("data-toggle","modal");
+          infoLink.setAttribute("data-target","#show-info");
+          var infoIcon = document.createElement("i");
+          infoIcon.setAttribute("class","fa fa-info fa-lg");
+          infoLink.appendChild(infoIcon);
+          cardBody.appendChild(infoLink);
+          var apply = document.createElement("a");
+          apply.setAttribute("class","btn btn-light float-right bg-darkish-blue Apply");
+          apply.setAttribute("data-toggle","modal");
+          apply.setAttribute("data-target","#success");
+          apply.innerHTML = "Apply Now";
+          cardBody.appendChild(apply);
+          card.appendChild(cardBody);
+          cardColumn.appendChild(card);
+        }
       }
-
-
 
       $(".Apply").click(function(e){
         let parent = e.target.closest('.card').cloneNode(true);
@@ -389,7 +395,7 @@
         //IDs[0] -> postID IDs[1] -> userId
         let postId = parseInt(IDs[0]);
         let userId = parseInt(IDs[1]);
-        let currentUserId = userInfo[0];
+        let currentUserId = userInfo[0][0];
         system.addUserActiveJobs(system.getPostAt(postId));
 
         var cardToDelete = document.getElementById(parentId);
@@ -397,6 +403,37 @@
         localStorage.setItem('SystemObjectData',JSON.stringify(system));
         localStorage.setItem('User',JSON.stringify(system.getUser()));
         });
+
+          $('#postData').click(function(){
+
+          let title = $('#title').val();
+          let description = $('#description').val();
+          let estimatedTime = $('#estimatedTime').val();
+          let availableDate = $('#availableDate').val();
+          let availableTime = $('#availableTime').val();
+          let payment = $('#payment').val();
+          let loca = $('#location').val();
+          console.log(title+" "+description+" "+estimatedTime+" "+availableDate+" "+availableTime+" "+payment+" "+loca);
+          
+          let newPost = [
+                    allPosts.length,//post id
+                    userInfo[0][0],//user id
+                    title,//title
+                    description,//description
+                    payment,//payment
+                    loca,//location
+                    estimatedTime,//hours
+                    availableTime,//avaialble time
+                    availableDate,//AVIALABLE DATE
+          ];
+          system.createPost(newPost);
+          console.log("post created");
+          console.log(system);
+          localStorage.setItem('SystemObjectData',JSON.stringify(system));
+          localStorage.setItem('User',JSON.stringify(system.getUser()));
+          
+        });
+
     </script>
   </body>
 </html>

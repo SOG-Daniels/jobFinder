@@ -1,28 +1,15 @@
 //display more info expansion
-$('.info').click(function(e){
-alert('test');
-let parent = e.target.closest('.card').cloneNode(true);
-let childNode = parent.childNodes;
-childNode = childNode[5];
-parent.removeChild(childNode);
-parent.childNodes[1].classList.add('font-large');
-parent.childNodes[3].classList.add('font-medium');
-console.log(parent.childNodes);
-parent.classList.add('alertBox');
-Swal.fire({
-    html: parent,
-    width: '500px'
-});
-});
+
 
 
 //Signin page - sign user in
 $('#submit').on('click',function(){
     let email = document.getElementById('inputEmail').value;
     let pass = document.getElementById('inputPassword').value;
-    localStorage.clear();
-    let sys = new System(null);
+    console.log(localStorage.getItem('SystemObjectData'));
+    let sys = new System(JSON.parse(localStorage.getItem('SystemObjectData')));
     let user = sys.findUser(email,pass);
+    console.log(user);
     if(user == null)
     {
       $('#signInError').html("Invalid credentials! Please try again.");
@@ -32,7 +19,7 @@ $('#submit').on('click',function(){
       
       localStorage.setItem('SystemObjectData',JSON.stringify(sys));
       localStorage.setItem('User',JSON.stringify(user));
-      location.assign("home.html");
+     // location.assign("home.html");
     }
   });
 
