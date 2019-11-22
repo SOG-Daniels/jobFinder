@@ -35,36 +35,40 @@
     <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40"
       height="40" class="rounded-circle">
   </a>
-  <div class="dropdown">
+  <!-- start of notification dropdown -->
+  <div class="dropdown-menu-right">
     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
       aria-expanded="false">
-      <span class="badge badge-danger ml-2">4</span>
+      <span class="badge badge-danger ml-2">3</span>
       <i class="fa fa-bell fa-lg" style="color:antiquewhite;"></i>
     </a>
 
     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-      <span class="dropdown-item" href="#">
+      <div class="dropdown-item" href="#">
         <div>
-          <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40"
-            height="40" class="rounded-circle">
-          <a href="#" class="btn btn-link color-black" id="">User Name</a>
+          <a href="#"class="btn btn-link">
+            <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40"
+              height="40" class="rounded-circle">
+          </a>
+          <a href="#" class="btn btn-link color-black" id="">John Doe</a>
+        </div>
+        <div class="mt-2 offset-2">
           is requesting the <span>Yard work</span>
         </div>
-        <div class="offset-7">
-          <a href="#" class="btn btn-light bg-darkish-blue">Accept</a>
+        <div class="d-flex justify-content-end">
+          <a href="#" class="btn btn-light bg-darkish-blue mr-2">Accept</a>
           <a href="#" class="btn btn-danger">Reject</a>
         </div>
-      </span>
-      <hr>
-      <span class="dropdown-item" href="#"></span>
+      </div>
       <hr>
       <span class="dropdown-item" href="#">
-        Please review <span>User Name</soan> <a href="#" class="btn btn-link offset-3 ">Review</a>
-        </span>
-        <hr>
-        <span class="dropdown-item text-center"><a href="#" class="btn btn-link">View all</a></span>
+        Please review <span>Mike Doe</span> <a href="#" class="btn btn-link pb-2 ">Review</a>
+      </span>
+      <hr>
+      <span class="dropdown-item text-center"><a href="#" class="btn btn-link">View all</a></span>
     </div>
   </div>
+  <!-- dripdown end -->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -400,10 +404,17 @@
         let currentUserId = userInfo[0][0];
         system.addUserActiveJobs(system.getPostAt(postId));
 
-        var cardToDelete = document.getElementById(parentId);
-        document.getElementById("cardColumn").removeChild(cardToDelete);
-        localStorage.setItem('SystemObjectData',JSON.stringify(system));
-        localStorage.setItem('User',JSON.stringify(system.getUser()));
+          let IDs = parentId.split('*');
+          //IDs[0] -> postID IDs[1] -> userId
+          let postId = parseInt(IDs[0]);
+          let userId = parseInt(IDs[1]);
+          let currentUserId = userInfo[0];
+          system.addUserActiveJobs(system.getPostAt(postId));
+
+          var cardToDelete = document.getElementById(parentId);
+          document.getElementById("cardColumn").removeChild(cardToDelete);
+          localStorage.setItem('SystemObjectData', JSON.stringify(system));
+          localStorage.setItem('User', JSON.stringify(system.getUser()));
         });
 
           $('#postData').click(function(){
