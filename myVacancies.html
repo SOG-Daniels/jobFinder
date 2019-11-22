@@ -17,61 +17,76 @@
   <link rel="stylesheet" href="main.css">
   <!--     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"> -->
 
-   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-   <script src="main.js"></script>
-   <!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script> -->
-   <!-- Include all compiled plugins (below), or include individual files as needed -->
-   <!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script> -->
-   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-     crossorigin="anonymous"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-     integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-     crossorigin="anonymous"></script>
-   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-     crossorigin="anonymous"></script>
-   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-   <script src="myjQuery.js"></script>
- 
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="main.js"></script>
+  <!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script> -->
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script> -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+  <script src="myjQuery.js"></script>
+
 
 
 </head>
 <nav class="navbar navbar-expand-lg navbar-dark bg-blue">
-  <a class="navbar-brand" href="#">
+  <a class="navbar-brand" href="profile.html">
     <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40"
       height="40" class="rounded-circle">
   </a>
-  <div class="dropdown">
+  <!-- start of notification dropdown -->
+  <div class="dropdown-menu-right">
     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
       aria-expanded="false">
-      <span class="badge badge-danger ml-2">4</span>
+      <span class="badge badge-danger ml-2">3</span>
       <i class="fa fa-bell fa-lg" style="color:antiquewhite;"></i>
     </a>
 
     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-      <span class="dropdown-item" href="#">
+      <div class="dropdown-item" href="#">
         <div>
-          <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40"
-            height="40" class="rounded-circle">
-          <a href="#" class="btn btn-link color-black" id="">User Name</a>
+          <a href="#" class="btn btn-link">
+            <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40"
+              height="40" class="rounded-circle">
+          </a>
+          <a href="#" class="btn btn-link color-black" id="">John Doe</a>
+        </div>
+        <div class="mt-2 offset-2">
           is requesting the <span>Yard work</span>
         </div>
-        <div class="offset-7">
-          <a href="#" class="btn btn-light bg-darkish-blue">Accept</a>
+        <div class="d-flex justify-content-end">
+          <a href="#" class="btn btn-light bg-darkish-blue mr-2">Accept</a>
           <a href="#" class="btn btn-danger">Reject</a>
         </div>
-      </span>
-      <hr>
-      <span class="dropdown-item" href="#"></span>
+      </div>
       <hr>
       <span class="dropdown-item" href="#">
-        Please review <span>User Name</soan> <a href="#" class="btn btn-link offset-3 ">Review</a>
+        Please review <span>Mike Doe</span> <a href="#" class="btn btn-link pb-2 ">Review</a>
+      </span>
+      <hr>
+      <div class="dropdown-item">
+        <span>
+          Please Confirm payment from <span><a href="#">John Doe</a></span>
         </span>
-        <hr>
-        <span class="dropdown-item text-center"><a href="#" class="btn btn-link">View all</a></span>
+        <div class="d-flex justify-content-end">
+          <a href="#" class="btn btn-light bg-darkish-blue mr-2">Yes</a>
+          <a href="#" class="btn btn-light bg-darkish-blue">No</a>
+        </div>
+
+      </div>
+      <hr>
+      <span class="dropdown-item text-center"><a href="#" class="btn btn-link">View all</a></span>
     </div>
   </div>
+  <!-- dripdown end -->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -216,38 +231,38 @@
 
 
   <div class="modal" id="delete1" tabindex="-1" role="dialog">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">DELETE</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <p>Are you sure you want to DELETE it?</p>
-            <div class="form-group">
-              <button type="button" class="btn btn-secondary floar-left" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-danger float-right" data-dismiss="modal" id="del1"> DELETE</button>
-            </div>
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">DELETE</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to DELETE it?</p>
+          <div class="form-group">
+            <button type="button" class="btn btn-secondary floar-left" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-danger float-right" data-dismiss="modal" id="del1"> DELETE</button>
           </div>
         </div>
       </div>
     </div>
-<script>
-$('#del').click(function(){
-  var postToDelete = document.getElementById("card1");
-  var container = document.getElementById("container");
-  container.removeChild(postToDelete);
-});
+  </div>
+  <script>
+    $('#del').click(function () {
+      var postToDelete = document.getElementById("card1");
+      var container = document.getElementById("container");
+      container.removeChild(postToDelete);
+    });
 
-$('#del1').click(function(){
-  var postToDelete = document.getElementById("card2");
-  var container = document.getElementById("container1");
-  container.removeChild(postToDelete);
-});
+    $('#del1').click(function () {
+      var postToDelete = document.getElementById("card2");
+      var container = document.getElementById("container1");
+      container.removeChild(postToDelete);
+    });
 
-</script>
+  </script>
 
 
 
@@ -319,9 +334,7 @@ $('#del1').click(function(){
               </div>
             </div>
           </div>
-        </div>
-        <div class="modal-footer">
-          <div class="form-group row">
+          <div class="form-group">
             <button type="button" class="btn btn-light bg-darkish-blue float-left" data-dismiss="modal">Ok</button>
             <button type="button" class="btn btn-light float-right"><i class="fa fa-edit"></i></button>
           </div>
@@ -416,28 +429,28 @@ $('#del1').click(function(){
         <h3>My Active Vacanies</h3>
         <hr>
         <div class="row mb-2">
-          <div class="col-12 col-md-12"  id="container">
+          <div class="col-12 col-md-12" id="container">
 
 
 
             <div class="card" id="card1">
               <script>
-              /*var card = document.createElement("div");  
-              card.setAttribute("class","card");
+                /*var card = document.createElement("div");
+                card.setAttribute("class","card");
 
-              var cardBody = document.createElement("div"); 
-              cardBody.setAttribute("class","card-body");
+                var cardBody = document.createElement("div");
+                cardBody.setAttribute("class","card-body");
 
-              var row = document.createElement("div"); 
-              row.setAttribute("class","row");
+                var row = document.createElement("div");
+                row.setAttribute("class","row");
 
-              var col12 = document.createElement("div"); 
-              col12.setAttribute("class","col-12");
-              var img = document.createElement("img"); 
-              img.setAttribute("src","https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg");
-              img.setAttribute("class","rounded-circle")
-              img.width = "40";
-              img.height = "40";*/
+                var col12 = document.createElement("div");
+                col12.setAttribute("class","col-12");
+                var img = document.createElement("img");
+                img.setAttribute("src","https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg");
+                img.setAttribute("class","rounded-circle")
+                img.width = "40";
+                img.height = "40";*/
 
               </script>
               <div class="card-body">
@@ -493,7 +506,7 @@ $('#del1').click(function(){
           </div>
         </div>
         <div class="row mb-2">
-          <div class="col-12 col-md-12"  id="container1">
+          <div class="col-12 col-md-12" id="container1">
             <div class="card" id="card2">
               <div class="card-body">
                 <div class="row">
