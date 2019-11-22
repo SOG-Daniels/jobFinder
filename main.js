@@ -137,10 +137,10 @@ class System{
                 [
                     2,//post id
                     0,//user id
-                    "Painting:",//title
-                    "I need help painting my room",//description
-                    40,//payment
-                    "25 albert st.",//location
+                    "Driver:",//title
+                    "I need help driving my taxi cars",//description
+                    20,//payment
+                    "22 Rose st.",//location
                     3,//hours
                     "8:00",//avaialble time
                     "24/10/2019",//AVIALABLE DATE
@@ -149,25 +149,25 @@ class System{
                 [
                     3,//post id
                     0,//user id
-                    "Painting:",//title
-                    "I need help painting my room",//description
-                    40,//payment
-                    "25 albert st.",//location
+                    "Relocation:",//title
+                    "I need help moving to my new house",//description
+                    80,//payment
+                    "25 Mary ave.",//location
                     3,//hours
                     "8:00",//avaialble time
-                    "24/10/2019",//AVIALABLE DATE
+                    "26/10/2019",//AVIALABLE DATE
                     
                 ],
                 [
                     4,//post id
                     1,//user id
-                    "Painting:",//title
-                    "I need help painting my room",//description
-                    40,//payment
-                    "25 albert st.",//location
+                    "Mechanic:",//title
+                    "Looking for someone to fix my Muffler",//description
+                    200,//payment
+                    "2 pineapple st.",//location
                     3,//hours
                     "8:00",//avaialble time
-                    "24/10/2019",//AVIALABLE DATE
+                    "24/11/2019",//AVIALABLE DATE
                     
                 ]
             ];
