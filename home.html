@@ -393,10 +393,10 @@
         let parent = e.target.closest('.card').cloneNode(true);
         let parentId = parent.id;
 
-        let IDs = parentId.split('*');
+        let ID = parentId.split('*');
         //IDs[0] -> postID IDs[1] -> userId
-        let postId = parseInt(IDs[0]);
-        let userId = parseInt(IDs[1]);
+        let postId = parseInt(ID[0]);
+        let userId = parseInt(ID[1]);
         let currentUserId = userInfo[0][0];
         system.addUserActiveJobs(system.getPostAt(postId));
 
