@@ -341,7 +341,7 @@
             userNameLink.setAttribute("class", "btn btn-link color-black");
 
             var r = userInfo[0][0].toString();
-            userNameLink.href = "./profile.html?userId=" + userInfo[0][0].toString();
+            userNameLink.href = "./profile.html?userId=" + allPosts[index][1].toString();
             var userName = document.createElement("u");
             userName.innerHTML = system.getUserNameById(allPosts[index][1]);
             userNameLink.appendChild(userName);
