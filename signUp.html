@@ -29,6 +29,8 @@
                         <h5 class="card-title text-center">Sign Up</h5>
                         <hr>
                         <form class="form" role="form" autocomplete="off">
+                            <div class="alert alert-danger" id="signInError" role="alert">error</div>
+                            <div class="alert alert-danger" id="signIn-error" role="alert">error</div>
                             <div class="form-group">
                                 <label for="inputName">Name</label>
                                 <input type="text" class="form-control" id="inputName" placeholder="full name">
@@ -49,7 +51,7 @@
                                     placeholder="password (again)" required="">
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="btn btn-light bg-darkish-blue btn-block">REGISTER</button>
+                                <button type="button" class="btn btn-light bg-darkish-blue btn-block">REGISTER</button>
                             </div>
                         </form>
                     </div>
