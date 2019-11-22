@@ -404,13 +404,6 @@
         let currentUserId = userInfo[0][0];
         system.addUserActiveJobs(system.getPostAt(postId));
 
-          let IDs = parentId.split('*');
-          //IDs[0] -> postID IDs[1] -> userId
-          let postId = parseInt(IDs[0]);
-          let userId = parseInt(IDs[1]);
-          let currentUserId = userInfo[0];
-          system.addUserActiveJobs(system.getPostAt(postId));
-
           var cardToDelete = document.getElementById(parentId);
           document.getElementById("cardColumn").removeChild(cardToDelete);
           localStorage.setItem('SystemObjectData', JSON.stringify(system));
