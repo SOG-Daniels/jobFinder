@@ -219,6 +219,7 @@ class System{
             ];
         }
         else{
+            console.log(sys);
             this.user = sys.user;
             this.postData = sys.postData;
             this.allUsers = sys.allUsers;
@@ -277,7 +278,10 @@ class System{
     }
     findUser(email,pass)//gets the user that is stored in the database
     {
+        console.log(email);
+        console.log(pass);
         for (let index = 0; index < this.allUsers.length; index++) {
+            console.log(this,this.allUsers[index]);
             let user = this.allUsers[index];
             if(user[2] == email && user[3] == pass)
             {

@@ -93,6 +93,68 @@
 </nav>
 
 <body class="bg-darkish-blue">
+        <div class="modal fade" id="post" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header bg-darkish-blue">
+              <h5 class="modal-title " id="exampleModalLongTitle">Post a Vacancy</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+    
+                <div class="form-group">
+                  <label for="title">Title <span class="require">*</span></label>
+                  <input type="text" class="form-control" name="title" id="title">
+                </div>
+    
+                <div class="form-group">
+                  <label for="description">Description</label>
+                  <textarea rows="5" class="form-control" name="description" id="description"></textarea>
+                </div>
+    
+                <div class="form-group">
+                  <label for="estimatedTime">Estimated Time: <span class="require">*</span></label>
+                  <input type="text" class="form-control" name="title" id="estimatedTime">
+                </div>
+    
+                <div class="form-group">
+                  <label for="availableDate">Availale Date: <span class="require">*</span></label>
+                  <input type="text" class="form-control" name="title" id="availableDate">
+                </div>
+    
+                <div class="form-group">
+                  <label for="availableTime">Availale Time: <span class="require">*</span></label>
+                  <input type="text" class="form-control" name="title" id="availableTime">
+                </div>
+    
+                <div class="form-group">
+                  <label for="payment">Payment: <span class="require">*</span></label>
+                  <input type="text" class="form-control" name="title" id="payment">
+                </div>
+    
+                <div class="form-group">
+                  <label for="location">Location: <span class="require">*</span></label>
+                  <input type="text" class="form-control" name="title" id="location">
+                </div>
+                <div class="form-group row">
+                  <div class="col-6">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                  </div>
+                  <div class="col-6 d-flex justify-content-end">
+                    <button type="button" class="btn btn-light bg-darkish-blue" data-dismiss="modal" data-toggle="modal"
+                      data-target="#success" id="postData">Post</button>
+                  </div>
+                </div>
+            </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    
     <div class="container">
         <div class="row">
             <div class="col">
@@ -180,6 +242,55 @@
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="myjQuery.js"></script>
+    <script>
+
+            var system = new System(JSON.parse(localStorage.getItem('SystemObjectData')));
+            var user = new User(JSON.parse(localStorage.getItem('User')));
+            system.setUser(user);
+            var userInfo = user.getInfo();
+            var allPosts = system.getAllPosts();
+          $('#postData').click(function(){
+      
+            let title = $('#title').val();
+            let description = $('#description').val();
+            let estimatedTime = $('#estimatedTime').val();
+            let availableDate = $('#availableDate').val();
+            let availableTime = $('#availableTime').val();
+            let payment = $('#payment').val();
+            let loca = $('#location').val();
+            console.log(title+" "+description+" "+estimatedTime+" "+availableDate+" "+availableTime+" "+payment+" "+loca);
+      
+            let newPost = [
+                      allPosts.length,//post id
+                      userInfo[0][0],//user id
+                      title,//title
+                      description,//description
+                      payment,//payment
+                      loca,//location
+                      estimatedTime,//hours
+                      availableTime,//avaialble time
+                      availableDate,//AVIALABLE DATE
+            ];
+            system.createPost(newPost);
+            console.log("post created");
+            console.log(system);
+            localStorage.setItem('SystemObjectData',JSON.stringify(system));
+            localStorage.setItem('User',JSON.stringify(system.getUser()));
+      
+          });
+
+            var vars = [], hash;
+            var hashes = window.location.href.slice(
+                    window.location.href.indexOf('?') + 1).split('&');
+            for ( var i = 0; i < hashes.length; i++) {
+                hash = hashes[i].split('=');
+                vars.push(hash[0]);
+                vars[hash[0]] = hash[1];
+            }
+            console.log(vars);
+            var userProfileData = system.getUserNameById(parseInt(vars["userId"]));
+            $("#username").html(userProfileData);
+        </script>
 </body>
 
 </html>
