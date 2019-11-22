@@ -292,48 +292,6 @@
             </div>
           </div>
         </div>
-<<<<<<< HEAD
-      </div>
-
-      <!-- Js script always go below the below  the body tag so it done not slow down page from rendering -->
-      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-      <script src="main.js"></script>
-      <!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script> -->
-      <!-- Include all compiled plugins (below), or include individual files as needed -->
-      <!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script> -->
-      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-      <script src="myjQuery.js"></script>
-      <script>
-        //load posts
-        var system = new System(JSON.parse(localStorage.getItem('SystemObjectData')));
-        var user = new User(JSON.parse(localStorage.getItem('User')));
-        system.setUser(user);
-        var userInfo = user.getInfo();
-        var allPosts = system.getAllPosts();
-
-        for (let index = 0; index < allPosts.length; index++) {
-          //create new card
-          var cardColumn = document.getElementById("cardColumn");
-          //card
-          var card = document.createElement("div");
-          card.setAttribute("class", "card");
-          card.setAttribute("id", allPosts[index][0].toString() + "*" + allPosts[index][1].toString());
-          //hard header
-          var cardHeader = document.createElement("div");
-          cardHeader.setAttribute("class", "card-header");
-          var userImage = document.createElement("img");
-          userImage.setAttribute("src", "https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg");
-          userImage.setAttribute("class", "rounded-circle");
-=======
     </div>
     <script>
       //load posts
@@ -360,92 +318,18 @@
           var userImage = document.createElement("img");
           userImage.setAttribute("src","https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg");
           userImage.setAttribute("class","rounded-circle");
->>>>>>> 70d8695d5d0f8b94af5be7028a546838337c4183
           userImage.width = "40";
           userImage.height = "40";
           cardHeader.appendChild(userImage);
           var userNameLink = document.createElement("a");
-<<<<<<< HEAD
-          userNameLink.setAttribute("class", "btn btn-link color-black");
-=======
           userNameLink.setAttribute("class","btn btn-link color-black");
           
           var r = userInfo[0][0].toString();
           userNameLink.href = "./profile.html?userId="+ userInfo[0][0].toString();
->>>>>>> 70d8695d5d0f8b94af5be7028a546838337c4183
           var userName = document.createElement("u");
           userName.innerHTML = system.getUserNameById(allPosts[index][1]);
           userNameLink.appendChild(userName);
           cardHeader.appendChild(userNameLink);
-<<<<<<< HEAD
-
-          var spanMessage = document.createElement("span");
-          spanMessage.setAttribute("class", "btn btn-light float-right bg-darkish-blue");
-          var messageIcon = document.createElement("i");
-          messageIcon.setAttribute("class", "fa fa-comments-o fa-2x");
-          spanMessage.appendChild(messageIcon);
-          cardHeader.appendChild(spanMessage);
-          card.appendChild(cardHeader);
-          //card body
-          var cardBody = document.createElement("div");
-          cardBody.setAttribute("class", "card-body");
-          var cardTitle = document.createElement("h4");
-          cardTitle.setAttribute("class", "card-title");
-          cardTitle.innerHTML = allPosts[index][2];
-          cardBody.appendChild(cardTitle);
-          var hr = document.createElement("hr");
-          cardBody.appendChild(hr);
-          var jobDescriptionLabel = document.createElement("label");
-          jobDescriptionLabel.setAttribute("for", "jobDescription")
-          jobDescriptionLabel.setAttribute("class", "font-weight-bold")
-          jobDescriptionLabel.innerHTML = "Job Description:";
-          cardBody.appendChild(jobDescriptionLabel);
-          var jobDescription = document.createElement("p");
-          jobDescription.setAttribute("class", "card-text");
-          jobDescription.innerHTML = allPosts[index][3];
-          cardBody.appendChild(jobDescription);
-          var PaymentLabel = document.createElement("label");
-          PaymentLabel.setAttribute("for", "Payment")
-          PaymentLabel.setAttribute("class", "font-weight-bold")
-          PaymentLabel.innerHTML = "Payment:";
-          cardBody.appendChild(PaymentLabel);
-          var payment = document.createElement("p");
-          payment.setAttribute("class", "card-text");
-          payment.innerHTML = '$' + allPosts[index][4].toString();
-          cardBody.appendChild(payment);
-          var locationLabel = document.createElement("label");
-          locationLabel.setAttribute("for", "location");
-          locationLabel.setAttribute("class", "font-weight-bold");
-          locationLabel.innerHTML = "Location:";
-          cardBody.appendChild(locationLabel);
-          var lc = document.createElement("p");
-          lc.setAttribute("class", "card-text");
-          lc.innerHTML = allPosts[index][5];
-          cardBody.appendChild(lc);
-          var infoLink = document.createElement("a");
-          infoLink.setAttribute("class", "btn btn-light rounded info bg-darkish-blue");
-          infoLink.setAttribute("data-toggle", "modal");
-          infoLink.setAttribute("data-target", "#show-info");
-          var infoIcon = document.createElement("i");
-          infoIcon.setAttribute("class", "fa fa-info fa-lg");
-          infoLink.appendChild(infoIcon);
-          cardBody.appendChild(infoLink);
-          var apply = document.createElement("a");
-          apply.setAttribute("class", "btn btn-light float-right bg-darkish-blue Apply");
-          apply.setAttribute("data-toggle", "modal");
-          apply.setAttribute("data-target", "#success");
-          apply.innerHTML = "Apply Now";
-          cardBody.appendChild(apply);
-          card.appendChild(cardBody);
-          cardColumn.appendChild(card);
-        }
-
-
-
-        $(".Apply").click(function (e) {
-          let parent = e.target.closest('.card').cloneNode(true);
-          let parentId = parent.id;
-=======
           
           var spanMessage = document.createElement("span");
           spanMessage.setAttribute("class","btn btn-light float-right bg-darkish-blue");
@@ -519,7 +403,6 @@
         let userId = parseInt(IDs[1]);
         let currentUserId = userInfo[0][0];
         system.addUserActiveJobs(system.getPostAt(postId));
->>>>>>> 70d8695d5d0f8b94af5be7028a546838337c4183
 
           let IDs = parentId.split('*');
           //IDs[0] -> postID IDs[1] -> userId
@@ -533,11 +416,6 @@
           localStorage.setItem('SystemObjectData', JSON.stringify(system));
           localStorage.setItem('User', JSON.stringify(system.getUser()));
         });
-<<<<<<< HEAD
-      </script>
-</body>
-
-=======
 
           $('#postData').click(function(){
 
@@ -571,5 +449,4 @@
 
     </script>
   </body>
->>>>>>> 70d8695d5d0f8b94af5be7028a546838337c4183
 </html>
