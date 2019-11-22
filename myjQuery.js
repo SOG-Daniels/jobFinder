@@ -14,7 +14,20 @@ Swal.fire({
     width: '500px'
 });
 });
-//create post alert
+//signin page - sign user in
+$('#submit').on('click',function(){
+    var email = document.getElementById('inputEmail').value;
+    var pass = document.getElementById('inputPassword').value;
 
-var user = new User("fehr");
-var sys = new System(user);
+    var sys = new System();
+    var user = sys.getUser(email,pass);
+    if(user == null)
+    {
+      $('#signInError').html("Invalid credentials! Please try again.");
+      $('#signInError').show();
+    }
+    else{
+      location.assign("home.html");
+      return false;
+    }
+  });

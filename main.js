@@ -6,7 +6,8 @@ class User{
             [
                 userData[0],
                 userData[1],
-                userData[2]
+                userData[2],
+                userData[3]
             ]
         ];
 
@@ -39,7 +40,10 @@ class User{
         ];
         
     }
-
+    getUserInfo()
+    {
+        return this.userInfo;
+    }
     getWorkHistory()
     {
         return this.workHistory;
@@ -102,11 +106,13 @@ class System{
             [
                 0,
                 "Fehr Faber",
+                "FehrFaber@gmail.com",
                 "IloveHCI"
             ],
             [
                 1,
-                "Danielson",
+                "Danielson Correa",
+                "danielson@gmail.com",
                 "IloveHCI"
             ]
         ];
@@ -135,11 +141,11 @@ class System{
             console.log("Post was not created! :function[createPost->system]");
         }
     }
-    getUser(name,pass)
+    getUser(email,pass)
     {
         for (let index = 0; index < this.allUsers.length; index++) {
             let user = this.allUsers[index];
-            if(user[1] == name && user[2] == pass)
+            if(user[2] == email && user[3] == pass)
             {
                 return new User(user);
             }
@@ -151,10 +157,10 @@ class System{
     {
         return this.postData;
     }
-    //must set user in the login page
-    setUser(name,pass)
+    //must set user in the login page/ sets the datamember [user]
+    setUser(email,pass)
     {
-        let user = this.getUser(name,pass);
+        let user = this.getUser(email,pass);
         if(user !== null)
         {
             this.user = user;
