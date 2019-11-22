@@ -17,14 +17,23 @@
   <link rel="stylesheet" href="main.css">
   <!--     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"> -->
 
-  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-  <!-- sweet alert for notifications-->
+   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+   <script src="main.js"></script>
+   <!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script> -->
+   <!-- Include all compiled plugins (below), or include individual files as needed -->
+   <!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script> -->
+   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+     crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+     integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+     crossorigin="anonymous"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+     crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+   <script src="myjQuery.js"></script>
+ 
 
 
 </head>
@@ -184,7 +193,7 @@
       </div>
     </div>
   </div>
-  <!-- Modal for deleting -->
+  <!-- Modal for deleting [DELETING MODAL1-->
   <div class="modal" id="delete" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
@@ -198,12 +207,51 @@
           <p>Are you sure you want to DELETE it?</p>
           <div class="form-group">
             <button type="button" class="btn btn-secondary floar-left" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-danger float-right"> DELETE</button>
+            <button type="button" class="btn btn-danger float-right" data-dismiss="modal" id="del"> DELETE</button>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+
+  <div class="modal" id="delete1" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">DELETE</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Are you sure you want to DELETE it?</p>
+            <div class="form-group">
+              <button type="button" class="btn btn-secondary floar-left" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-danger float-right" data-dismiss="modal" id="del1"> DELETE</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<script>
+$('#del').click(function(){
+  var postToDelete = document.getElementById("card1");
+  var container = document.getElementById("container");
+  container.removeChild(postToDelete);
+});
+
+$('#del1').click(function(){
+  var postToDelete = document.getElementById("card2");
+  var container = document.getElementById("container1");
+  container.removeChild(postToDelete);
+});
+
+</script>
+
+
+
+
   <!-- modal for view active vacancy  -->
   <div class="modal fade" id="view-active" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
     aria-hidden="true">
@@ -368,8 +416,30 @@
         <h3>My Active Vacanies</h3>
         <hr>
         <div class="row mb-2">
-          <div class="col-12 col-md-12">
-            <div class="card">
+          <div class="col-12 col-md-12"  id="container">
+
+
+
+            <div class="card" id="card1">
+              <script>
+              /*var card = document.createElement("div");  
+              card.setAttribute("class","card");
+
+              var cardBody = document.createElement("div"); 
+              cardBody.setAttribute("class","card-body");
+
+              var row = document.createElement("div"); 
+              row.setAttribute("class","row");
+
+              var col12 = document.createElement("div"); 
+              col12.setAttribute("class","col-12");
+              var img = document.createElement("img"); 
+              img.setAttribute("src","https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg");
+              img.setAttribute("class","rounded-circle")
+              img.width = "40";
+              img.height = "40";*/
+
+              </script>
               <div class="card-body">
                 <div class="row">
                   <div class="col-12">
@@ -405,24 +475,26 @@
                         <p class="d-inline">24/10/2019</p>
                       </div>
                     </div>
-
                   </div>
                 </div>
                 <span class="float-right">
                   <a href="#" class="btn btn-light bg-darkish-blue mr-2" data-toggle="modal" data-target="#view-active">
                     View
                   </a>
-                  <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#delete">
+                  <a href="#" class="btn btn-danger delete" data-toggle="modal" data-target="#delete">
                     <i class="fa fa-trash"></i>
                   </a>
                 </span>
               </div>
             </div>
+
+
+
           </div>
         </div>
         <div class="row mb-2">
-          <div class="col-12 col-md-12">
-            <div class="card">
+          <div class="col-12 col-md-12"  id="container1">
+            <div class="card" id="card2">
               <div class="card-body">
                 <div class="row">
                   <div class="col-12">
@@ -465,7 +537,7 @@
                   <a href="#" class="btn btn-light bg-darkish-blue mr-2" data-toggle="modal" data-target="#view-active">
                     View
                   </a>
-                  <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#delete">
+                  <a href="#" class="btn btn-danger delete" data-toggle="modal" data-target="#delete1">
                     <i class="fa fa-trash"></i>
                   </a>
                 </span>
@@ -477,7 +549,7 @@
     </div>
     <div class="row">
       <div class="col">
-        <h3>My Active Vacanies</h3>
+        <h3>My Vacany History</h3>
         <hr>
         <div class="row mb-2">
           <div class="col-12 col-md-12">
@@ -533,22 +605,6 @@
     </div>
     <!--search bar-->
   </div>
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  <script src="main.js"></script>
-  <!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script> -->
-  <!-- Include all compiled plugins (below), or include individual files as needed -->
-  <!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script> -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-  <script src="myjQuery.js"></script>
 </body>
 
 </html>

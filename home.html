@@ -17,18 +17,18 @@
   <link rel="stylesheet" href="main.css">
   <!--     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"> -->
 
-  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-  <!-- sweet alert for notifications-->
-
-
-</head>
-<nav class="navbar navbar-expand-lg navbar-dark bg-blue">
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="main.js"></script>
+        <!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script> -->
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script> -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+        <script src="myjQuery.js"></script>  
+  </head>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-blue">
   <a class="navbar-brand" href="#">
     <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40"
       height="40" class="rounded-circle">
@@ -282,156 +282,121 @@
         </div>
         <div class="row">
           <div class="col">
-            <!-- the class card-columns makes all the cards inside it aligned and spaced properly -->
-            <div class="card-columns">
-              <!-- start of card  -->
-              <div class="card">
-                <div class="card-header">
-                  <!-- the card header is the header of the card -->
-                  <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg"
-                    width="40" height="40" class="rounded-circle">
-                  <!-- above the image -->
-                  <a href="#" class="btn btn-link color-black" id=""><u>User Name</u></a>
-                  <span class="btn btn-light float-right bg-darkish-blue"><i class="fa fa-comments-o fa-2x"></i></span>
-                </div>
-                <div class="card-body">
-                  <h4 class="card-title">Painting</h4>
-                  <hr>
-                  <label for="jobDescription" class="font-weight-bold">Job Description: </label>
-                  <p class="card-text " id="jobDescription"> Some quick example text to build on the card title and make
-                    up the bulk of the card's content.</p>
-                  <label for="payment" class="font-weight-bold">Payment: </label>
-                  <p class="card-text" id="payment"> $40</p>
-
-                  <label for="location" class="font-weight-bold d-block">Location: </label>
-                  <p class="card-text" id="location">25 Apple str.</p>
-
-                  <a href="#" class="btn btn-light rounded info bg-darkish-blue" data-toggle="modal"
-                    data-target="#show-info">
-                    <i class="fa fa-info fa-lg"></i>
-                  </a>
-                  <a href="#" class="btn btn-light float-right bg-darkish-blue" data-toggle="modal"
-                    data-target="#success">
-                    Apply Now
-                  </a>
-                </div>
-              </div>
-              <!-- end of card -->
-              <!--  start of new card  -->
-              <div class="card">
-                <div class="card-header">
-                  <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg"
-                    width="40" height="40" class="rounded-circle">
-                  <a href="#" class="btn btn-link color-black" id=""><u>User Name</u></a>
-                  <span class="btn btn-light float-right bg-darkish-blue"><i class="fa fa-comments-o fa-2x"></i></span>
-                </div>
-                <div class="card-body">
-                  <h4 class="card-title">Painting</h4>
-                  <hr>
-                  <label for="jobDescription" class="font-weight-bold">Job Description: </label>
-                  <p class="card-text " id="jobDescription"> Some quick example text to build on the card title and make
-                    up the bulk of the card's content.</p>
-                  <label for="payment" class="font-weight-bold">Payment: </label>
-                  <p class="card-text" id="payment"> $40</p>
-
-                  <label for="location" class="font-weight-bold d-block">Location: </label>
-                  <p class="card-text" id="location">25 Apple str.</p>
-
-                  <a href="#" class="btn btn-light rounded info bg-darkish-blue" data-toggle="modal"
-                    data-target="#show-info">
-                    <i class="fa fa-info fa-lg"></i>
-                  </a>
-                  <a href="#" class="btn btn-light float-right bg-darkish-blue" data-toggle="modal"
-                    data-target="#success">
-                    Apply Now
-                  </a>
-                </div>
-              </div>
-              <!-- end of card -->
- <!--  start of new card  -->
-              <div class="card">
-                <div class="card-header">
-                  <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg"
-                    width="40" height="40" class="rounded-circle">
-                  <a href="#" class="btn btn-link color-black" id=""><u>User Name</u></a>
-                  <span class="btn btn-light float-right bg-darkish-blue"><i class="fa fa-comments-o fa-2x"></i></span>
-                </div>
-                <div class="card-body">
-                  <h4 class="card-title">Painting</h4>
-                  <hr>
-                  <label for="jobDescription" class="font-weight-bold">Job Description: </label>
-                  <p class="card-text " id="jobDescription"> Some quick example text to build on the card title and make
-                    up the bulk of the card's content.</p>
-                  <label for="payment" class="font-weight-bold">Payment: </label>
-                  <p class="card-text" id="payment"> $40</p>
-
-                  <label for="location" class="font-weight-bold d-block">Location: </label>
-                  <p class="card-text" id="location">25 Apple str.</p>
-
-                  <a href="#" class="btn btn-light rounded info bg-darkish-blue" data-toggle="modal"
-                    data-target="#show-info">
-                    <i class="fa fa-info fa-lg"></i>
-                  </a>
-                  <a href="#" class="btn btn-light float-right bg-darkish-blue" data-toggle="modal"
-                    data-target="#success">
-                    Apply Now
-                  </a>
-                </div>
-              </div>
-              <!-- end of card -->
-            <!--  start of new card  -->
-              <div class="card">
-                <div class="card-header">
-                  <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg"
-                    width="40" height="40" class="rounded-circle">
-                  <a href="#" class="btn btn-link color-black" id=""><u>User Name</u></a>
-                  <span class="btn btn-light float-right bg-darkish-blue"><i class="fa fa-comments-o fa-2x"></i></span>
-                </div>
-                <div class="card-body">
-                  <h4 class="card-title">Painting</h4>
-                  <hr>
-                  <label for="jobDescription" class="font-weight-bold">Job Description: </label>
-                  <p class="card-text " id="jobDescription"> Some quick example text to build on the card title and make
-                    up the bulk of the card's content.</p>
-                  <label for="payment" class="font-weight-bold">Payment: </label>
-                  <p class="card-text" id="payment"> $40</p>
-
-                  <label for="location" class="font-weight-bold d-block">Location: </label>
-                  <p class="card-text" id="location">25 Apple str.</p>
-
-                  <a href="#" class="btn btn-light rounded info bg-darkish-blue" data-toggle="modal"
-                    data-target="#show-info">
-                    <i class="fa fa-info fa-lg"></i>
-                  </a>
-                  <a href="#" class="btn btn-light float-right bg-darkish-blue" data-toggle="modal"
-                    data-target="#success">
-                    Apply Now
-                  </a>
-                </div>
-              </div>
-              <!-- end of card -->
+            <div class="card-columns" id="cardColumn">
+            </div>
           </div>
         </div>
-      </div>
     </div>
-    <!--search bar-->
-  </div>
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  <script src="main.js"></script>
-  <!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script> -->
-  <!-- Include all compiled plugins (below), or include individual files as needed -->
-  <!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script> -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-  <script src="myjQuery.js"></script>
-</body>
+    <script>
+      //load posts
+      var system = new System(JSON.parse(localStorage.getItem('SystemObjectData')));
+      var user = new User(JSON.parse(localStorage.getItem('User')));
+      system.setUser(user);
+      var userInfo = user.getInfo();
+      var allPosts = system.getAllPosts();
+      
+      for (let index = 0; index < allPosts.length; index++) {
+        //create new card
+        var cardColumn = document.getElementById("cardColumn");
+          //card
+        var card = document.createElement("div");
+        card.setAttribute("class","card");
+        card.setAttribute("id",allPosts[index][0].toString()+"*"+allPosts[index][1].toString());
+        //hard header
+        var cardHeader = document.createElement("div");
+        cardHeader.setAttribute("class","card-header");
+        var userImage = document.createElement("img");
+        userImage.setAttribute("src","https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg");
+        userImage.setAttribute("class","rounded-circle");
+        userImage.width = "40";
+        userImage.height = "40";
+        cardHeader.appendChild(userImage);
+        var userNameLink = document.createElement("a");
+        userNameLink.setAttribute("class","btn btn-link color-black");
+        var userName = document.createElement("u");
+        userName.innerHTML = system.getUserNameById(allPosts[index][1]);
+        userNameLink.appendChild(userName);
+        cardHeader.appendChild(userNameLink);
+        
+        var spanMessage = document.createElement("span");
+        spanMessage.setAttribute("class","btn btn-light float-right bg-darkish-blue");
+        var messageIcon = document.createElement("i");
+        messageIcon.setAttribute("class","fa fa-comments-o fa-2x");
+        spanMessage.appendChild(messageIcon);
+        cardHeader.appendChild(spanMessage);
+        card.appendChild(cardHeader);
+        //card body
+        var cardBody =  document.createElement("div");
+        cardBody.setAttribute("class","card-body");
+        var cardTitle = document.createElement("h4");
+        cardTitle.setAttribute("class","card-title");
+        cardTitle.innerHTML = allPosts[index][2];
+        cardBody.appendChild(cardTitle);
+        var hr = document.createElement("hr");
+        cardBody.appendChild(hr);                 
+        var jobDescriptionLabel = document.createElement("label");
+        jobDescriptionLabel.setAttribute("for","jobDescription")
+        jobDescriptionLabel.setAttribute("class","font-weight-bold")
+        jobDescriptionLabel.innerHTML = "Job Description:";
+        cardBody.appendChild(jobDescriptionLabel);
+        var jobDescription = document.createElement("p");
+        jobDescription.setAttribute("class","card-text");
+        jobDescription.innerHTML = allPosts[index][3];
+        cardBody.appendChild(jobDescription);
+        var PaymentLabel = document.createElement("label");
+        PaymentLabel.setAttribute("for","Payment")
+        PaymentLabel.setAttribute("class","font-weight-bold")
+        PaymentLabel.innerHTML = "Payment:";
+        cardBody.appendChild(PaymentLabel);
+        var payment =document.createElement("p");
+        payment.setAttribute("class","card-text");
+        payment.innerHTML = '$'+ allPosts[index][4].toString();
+        cardBody.appendChild(payment);
+        var locationLabel = document.createElement("label");
+        locationLabel.setAttribute("for","location");
+        locationLabel.setAttribute("class","font-weight-bold");
+        locationLabel.innerHTML = "Location:";
+        cardBody.appendChild(locationLabel);
+        var lc = document.createElement("p");
+        lc.setAttribute("class","card-text");
+        lc.innerHTML = allPosts[index][5];
+        cardBody.appendChild(lc);
+        var infoLink = document.createElement("a");
+        infoLink.setAttribute("class","btn btn-light rounded info bg-darkish-blue");
+        infoLink.setAttribute("data-toggle","modal");
+        infoLink.setAttribute("data-target","#show-info");
+        var infoIcon = document.createElement("i");
+        infoIcon.setAttribute("class","fa fa-info fa-lg");
+        infoLink.appendChild(infoIcon);
+        cardBody.appendChild(infoLink);
+        var apply = document.createElement("a");
+        apply.setAttribute("class","btn btn-light float-right bg-darkish-blue Apply");
+        apply.setAttribute("data-toggle","modal");
+        apply.setAttribute("data-target","#success");
+        apply.innerHTML = "Apply Now";
+        cardBody.appendChild(apply);
+        card.appendChild(cardBody);
+        cardColumn.appendChild(card);
+      }
 
+
+
+      $(".Apply").click(function(e){
+        let parent = e.target.closest('.card').cloneNode(true);
+        let parentId = parent.id;
+
+        let IDs = parentId.split('*');
+        //IDs[0] -> postID IDs[1] -> userId
+        let postId = parseInt(IDs[0]);
+        let userId = parseInt(IDs[1]);
+        let currentUserId = userInfo[0];
+        system.addUserActiveJobs(system.getPostAt(postId));
+
+        var cardToDelete = document.getElementById(parentId);
+        document.getElementById("cardColumn").removeChild(cardToDelete);
+        localStorage.setItem('SystemObjectData',JSON.stringify(system));
+        localStorage.setItem('User',JSON.stringify(system.getUser()));
+        });
+    </script>
+  </body>
 </html>
