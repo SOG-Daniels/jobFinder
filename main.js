@@ -255,13 +255,22 @@ class System{
     }
     getPostAt(location)
     {
-        if(this.postData[location] !== null)
+        for (let index = 0; index < this.postData.length; index++) {
+            if(this.postData[index][0] == location)
+            {
+                return this.postData[index];
+            }
+            
+        }
+        /*if(this.postData[location] !== null)
         {
-            return this.postData[location];
+            console.log("postData");
+            console.log(this.postData);
+            
         }
         else{
             console.log("Could not get post at location"+ location.toString()+" :function[getPostAt]");
-        }
+        }*/
     }
     //data must be an array of 5
     createPost(data)
@@ -352,6 +361,7 @@ class System{
     }
     addUserActiveJobs(data)
     {
+        console.log(data);
         if(this.user !== null){
             this.user.activeJobs.push(data);
             let posts= [];
@@ -370,6 +380,7 @@ class System{
             return null;
         }
     }
+
     addUserJobsTaken(data)
     {
         if(this.user !== null){

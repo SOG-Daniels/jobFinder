@@ -316,7 +316,7 @@
         var user = new User(JSON.parse(localStorage.getItem('User')));
         system.setUser(user);
         console.log("home page:");
-        console.log(user);
+        console.log(system);
         var userInfo = user.getInfo();
         var allPosts = system.getAllPosts();
 
@@ -416,6 +416,8 @@
         let ID = parentId.split('*');
         //IDs[0] -> postID IDs[1] -> userId
         let postId = parseInt(ID[0]);
+        console.log("POSTid:");
+        console.log(system.getPostAt(postId));
         let userId = parseInt(ID[1]);
         let currentUserId = userInfo[0][0];
         system.addUserActiveJobs(system.getPostAt(postId));
