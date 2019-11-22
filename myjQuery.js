@@ -19,7 +19,7 @@ $('#submit').on('click',function(){
       
       localStorage.setItem('SystemObjectData',JSON.stringify(sys));
       localStorage.setItem('User',JSON.stringify(user));
-     location.assign("home.html");
+      location.assign("home.html");
     }
   });
 
