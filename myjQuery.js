@@ -67,3 +67,4 @@ $('#register').on('click',function(){
     location.assign("home.html");
 
 });
+

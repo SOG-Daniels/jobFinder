@@ -20,29 +20,44 @@ class User{
             ];
             this.workHistory = [
                 [
-                    0,
-                    "Painting:",
-                    "I need help painting my room",
-                    "$40",
-                    "25 albert st."
+                    1,//post id
+                    1,//user id
+                    "Painting:",//title
+                    "I need help painting my room",//description
+                    40,//payment
+                    "25 albert st.",//location
+                    3,//hours
+                    "8:00",//avaialble time
+                    "24/10/2019",//AVIALABLE DATE
+
                 ]
             ];
             this.activeJobs =[
                 [
-                    0,
-                    "Painting:",
-                    "I need help painting my room",
-                    "$40",
-                    "25 albert st."
+                    1,//post id
+                    1,//user id
+                    "Painting:",//title
+                    "I need help painting my room",//description
+                    40,//payment
+                    "25 albert st.",//location
+                    3,//hours
+                    "8:00",//avaialble time
+                    "24/10/2019",//AVIALABLE DATE
+
                 ]
             ];
             this.jobsTaken = [
                 [
-                    0,
-                    "Painting:",
-                    "I need help painting my room",
-                    "$40",
-                    "25 albert st."
+                    1,//post id
+                    1,//user id
+                    "Painting:",//title
+                    "I need help painting my room",//description
+                    40,//payment
+                    "25 albert st.",//location
+                    3,//hours
+                    "8:00",//avaialble time
+                    "24/10/2019",//AVIALABLE DATE
+
                 ]
             ];
         }else if(userData[2] != null){
@@ -56,29 +71,44 @@ class User{
             ];
             this.workHistory = [
                 [
-                    0,
-                    "Painting:",
-                    "I need help painting my room",
-                    "$40",
-                    "25 albert st."
+                    1,//post id
+                    1,//user id
+                    "Painting:",//title
+                    "I need help painting my room",//description
+                    40,//payment
+                    "25 albert st.",//location
+                    3,//hours
+                    "8:00",//avaialble time
+                    "24/10/2019",//AVIALABLE DATE
+
                 ]
             ];
             this.activeJobs =[
                 [
-                    0,
-                    "Painting:",
-                    "I need help painting my room",
-                    "$40",
-                    "25 albert st."
+                    1,//post id
+                    1,//user id
+                    "Painting:",//title
+                    "I need help painting my room",//description
+                    40,//payment
+                    "25 albert st.",//location
+                    3,//hours
+                    "8:00",//avaialble time
+                    "24/10/2019",//AVIALABLE DATE
+
                 ]
             ];
             this.jobsTaken = [
                 [
-                    0,
-                    "Painting:",
-                    "I need help painting my room",
-                    "$40",
-                    "25 albert st."
+                    1,//post id
+                    1,//user id
+                    "Painting:",//title
+                    "I need help painting my room",//description
+                    40,//payment
+                    "25 albert st.",//location
+                    3,//hours
+                    "8:00",//avaialble time
+                    "24/10/2019",//AVIALABLE DATE
+
                 ]
             ];
         }
@@ -123,7 +153,7 @@ class System{
             //home page posts
             this.postData = [
                 [
-                    1,//post id
+                    0,//post id
                     1,//user id
                     "Painting:",//title
                     "I need help painting my room",//description
@@ -132,10 +162,10 @@ class System{
                     3,//hours
                     "8:00",//avaialble time
                     "24/10/2019",//AVIALABLE DATE
-
+                    
                 ],
                 [
-                    2,//post id
+                    1,//post id
                     0,//user id
                     "Driver:",//title
                     "I need help driving my taxi cars",//description
@@ -147,7 +177,7 @@ class System{
                     
                 ],
                 [
-                    3,//post id
+                    2,//post id
                     0,//user id
                     "Relocation:",//title
                     "I need help moving to my new house",//description
@@ -159,7 +189,7 @@ class System{
                     
                 ],
                 [
-                    4,//post id
+                    3,//post id
                     1,//user id
                     "Mechanic:",//title
                     "Looking for someone to fix my Muffler",//description
@@ -320,6 +350,16 @@ class System{
     {
         if(this.user !== null){
             this.user.activeJobs.push(data);
+            let posts= [];
+            this.postData;
+            for (let index = 0; index < this.postData.length; index++) {
+                if(index != data[0])
+                    posts.push(this.postData[index]);
+                
+            }
+            this.postData = posts;
+            console.log(this.postData);
+
         }
         else{
             console.log("User does not exist to add active job! :function[addUserActiveJobs->system]");

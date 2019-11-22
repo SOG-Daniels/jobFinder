@@ -308,7 +308,6 @@
       system.setUser(user);
       var userInfo = user.getInfo();
       var allPosts = system.getAllPosts();
-      console.log(allPosts);
       
       for (let index = 0; index < allPosts.length; index++) {
         //create new card
@@ -316,7 +315,7 @@
           //card
         var card = document.createElement("div");
         card.setAttribute("class","card");
-        card.setAttribute("id",allPosts[index][0].toString()+allPosts[index][1].toString());
+        card.setAttribute("id",allPosts[index][0].toString()+"*"+allPosts[index][1].toString());
         //hard header
         var cardHeader = document.createElement("div");
         cardHeader.setAttribute("class","card-header");
@@ -329,7 +328,6 @@
         var userNameLink = document.createElement("a");
         userNameLink.setAttribute("class","btn btn-link color-black");
         var userName = document.createElement("u");
-        console.log(allPosts[index][1]);
         userName.innerHTML = system.getUserNameById(allPosts[index][1]);
         userNameLink.appendChild(userName);
         cardHeader.appendChild(userNameLink);
@@ -393,8 +391,26 @@
         cardBody.appendChild(apply);
         card.appendChild(cardBody);
         cardColumn.appendChild(card);
-        
       }
+
+
+
+      $(".Apply").click(function(e){
+        let parent = e.target.closest('.card').cloneNode(true);
+        let parentId = parent.id;
+
+        let IDs = parentId.split('*');
+        //IDs[0] -> postID IDs[1] -> userId
+        let postId = parseInt(IDs[0]);
+        let userId = parseInt(IDs[1]);
+        let currentUserId = userInfo[0];
+        system.addUserActiveJobs(system.getPostAt(postId));
+
+        var cardToDelete = document.getElementById(parentId);
+        document.getElementById("cardColumn").removeChild(cardToDelete);
+        localStorage.setItem('SystemObjectData',JSON.stringify(system));
+        localStorage.setItem('User',JSON.stringify(system.getUser()));
+        });
     </script>
   </body>
 </html>
