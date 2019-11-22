@@ -40,7 +40,7 @@ class User{
         ];
         
     }
-    getUserInfo()
+    getInfo()// TEST FUNCTION
     {
         return this.userInfo;
     }
@@ -69,55 +69,78 @@ class User{
     {
         this.jobsTaken.push(data);
     }
-        
 }
 
 class System{
-    constructor()
+    constructor(sys)
     {
-        this.user = null;
-        //home page posts
-        this.postData = [
+        if(sys == null)
+        {
+            this.user = null;
+            //home page posts
+            this.postData = [
+                [
+                    0,
+                    "Painting:",
+                    "I need help painting my room",
+                    "$40",
+                    "25 albert st."
+                ],
+                [
+                    1,
+                    "Painting:",
+                    "I need help painting my room",
+                    "$40",
+                    "25 albert st."
+                ],
+                [
+                    2,
+                    "Painting:",
+                    "I need help painting my room",
+                    "$40",
+                    "25 albert st."
+                ]
+            ];
+    
+            this.allUsers =       
             [
-                0,
-                "Painting:",
-                "I need help painting my room",
-                "$40",
-                "25 albert st."
-            ],
-            [
-                1,
-                "Painting:",
-                "I need help painting my room",
-                "$40",
-                "25 albert st."
-            ],
-            [
-                2,
-                "Painting:",
-                "I need help painting my room",
-                "$40",
-                "25 albert st."
-            ]
-        ];
-
-        this.allUsers =       
-        [
-            [
-                0,
-                "Fehr Faber",
-                "FehrFaber@gmail.com",
-                "IloveHCI"
-            ],
-            [
-                1,
-                "Danielson Correa",
-                "danielson@gmail.com",
-                "IloveHCI"
-            ]
-        ];
+                [
+                    0,
+                    "Fehr Faber",
+                    "FehrFaber@gmail.com",
+                    "IloveHCI"
+                ],
+                [
+                    1,
+                    "Danielson Correa",
+                    "danielson@gmail.com",
+                    "IloveHCI"
+                ]
+            ];
+        }
+        else{
+            this.user = sys.user;
+            this.postData = sys.postData;
+            this.allUsers = sys.allUsers;
+        }
+               
     }
 
+    getNumberOfUsers()
+    {
+        return this.allUsers.length;
+    }
+    nameExist(name)
+    {
+        for (let index = 0; index < this.allUsers.length; index++) {
+            let user = this.allUsers[index];
+            if(user[2] == name)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
     getPostAt(location)
     {
         if(this.postData[location] !== null)
@@ -141,7 +164,7 @@ class System{
             console.log("Post was not created! :function[createPost->system]");
         }
     }
-    getUser(email,pass)
+    getUser(email,pass)//gets the user that is stored in the database
     {
         for (let index = 0; index < this.allUsers.length; index++) {
             let user = this.allUsers[index];
@@ -237,6 +260,10 @@ class System{
             console.log("User does not exist to add job taken! :function[getUserJobsTaken->system]");
             return null;
         }
+    }
+    addNewUser(user)
+    {
+        this.allUsers.push(user);
     }
 
 }
