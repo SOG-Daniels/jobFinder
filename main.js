@@ -327,7 +327,6 @@ class System{
     {
         let myPosts = [];
         for (let index = 0; index < this.postData.length; index++) {
-            console.log(this.postData[index][1]);
             if(this.postData[index][1] == user.userInfo[0][0])
             {
                 myPosts.push(this.postData[index]);

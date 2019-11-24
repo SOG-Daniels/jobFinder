@@ -37,10 +37,7 @@
   <script>
     var system = new System(JSON.parse(localStorage.getItem('SystemObjectData')));
     var user = JSON.parse(localStorage.getItem('User'));
-    console.log(user);
     user = new User(JSON.parse(localStorage.getItem('User')));
-    console.log("user:");
-    console.log(user);
     system.setUser(user);
     localStorage.setItem('SystemObjectData',JSON.stringify(system));
 
@@ -261,24 +258,6 @@
       </div>
     </div>
   </div>
-  <script>
-    $('#del').click(function () {
-      var postToDelete = document.getElementById("card1");
-      var container = document.getElementById("container");
-      container.removeChild(postToDelete);
-    });
-
-    $('#del1').click(function () {
-      var postToDelete = document.getElementById("card2");
-      var container = document.getElementById("container1");
-      container.removeChild(postToDelete);
-    });
-
-  </script>
-
-
-
-
   <!-- modal for view active vacancy  -->
   <div class="modal fade" id="view-active" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
     aria-hidden="true">
@@ -445,131 +424,78 @@
 
 
 
-            <div class="card" id="card1">
-              <script>
-                /*var card = document.createElement("div");
-                card.setAttribute("class","card");
+<script>
 
-                var cardBody = document.createElement("div");
-                cardBody.setAttribute("class","card-body");
+  var myVacancies = user.myVacancies;
+  console.log(user);
 
-                var row = document.createElement("div");
-                row.setAttribute("class","row");
+  for (let index = 0; index < myVacancies.length; index++) {
 
-                var col12 = document.createElement("div");
-                col12.setAttribute("class","col-12");
-                var img = document.createElement("img");
-                img.setAttribute("src","https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg");
-                img.setAttribute("class","rounded-circle")
-                img.width = "40";
-                img.height = "40";*/
+    document.write( '<div class=\"row mb-2\">\n' );
+    document.write( '<div class=\"col-12 col-md-12\">\n' );
+    document.write( '<div class=\"card\" id='+myVacancies[index][0].toString() + "*" + myVacancies[index][1].toString()+'>\n' );
+    document.write( '              <div class=\"card-body\">\n' );
+    document.write( '                <div class=\"row\">\n' );
+    document.write( '                  <div class=\"col-12\">\n' );
+    document.write( '                    <img src=\"https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg\"\n' );
+    document.write( '                      width=\"40\" height=\"40\" class=\"rounded-circle\">\n' );
+    document.write( '                    <a href=\"#\" class=\"btn btn-link color-black\" id=\"\"><u>'+system.getUserNameById(myVacancies[index][1])+'</u></a>\n' );
+    document.write( '                  </div>\n' );
+    document.write( '                </div>\n' );
+    document.write( '                <div class=\"row d-flex justify-content-center\">\n' );
+    document.write( '                  <div class=\"col-8\">\n' );
+    document.write( '                    <div class=\"row\">\n' );
+    document.write( '                      <div class=\"col-4\">\n' );
+    document.write( '                        <label for=\"Job Title\" class=\"font-weight-bold \">Job: </label>\n' );
+    document.write( '                      </div>\n' );
+    document.write( '                      <div class=\"col-8\">\n' );
+    document.write( '                        <p class=\"\">'+myVacancies[index][2]+'</p>\n' );
+    document.write( '                      </div>\n' );
+    document.write( '                    </div>\n' );
+    document.write( '                    <div class=\"row\">\n' );
+    document.write( '                      <div class=\"col-4\">\n' );
+    document.write( '                        <label for=\"time\" class=\"font-weight-bold\">Time: </label>\n' );
+    document.write( '                      </div>\n' );
+    document.write( '                      <div class=\"col-8\">\n' );
+    document.write( '                        <p class=\"\">'+myVacancies[index][7]+'</p>\n' );
+    document.write( '                      </div>\n' );
+    document.write( '                    </div>\n' );
+    document.write( '                    <div class=\"row\">\n' );
+    document.write( '                      <div class=\"col-4\">\n' );
+    document.write( '                        <label for=\"date\" class=\"font-weight-bold\">Date: </label>\n' );
+    document.write( '\n' );
+    document.write( '                      </div>\n' );
+    document.write( '                      <div class=\"col-8\">\n' );
+    document.write( '                        <p class=\"d-inline\">'+myVacancies[index][8]+'</p>\n' );
+    document.write( '                      </div>\n' );
+    document.write( '                    </div>\n' );
+    document.write( '                  </div>\n' );
+    document.write( '                </div>\n' );
+    document.write( '                <span class=\"float-right\">\n' );
+    document.write( '                  <a href=\"#\" class=\"btn btn-light bg-darkish-blue mr-2\" data-toggle=\"modal\" data-target=\"#view-active\">\n' );
+    document.write( '                    View\n' );
+    document.write( '                  </a>\n' );
+    document.write( '                  <a href=\"#\" class=\"btn btn-danger delete\" data-toggle=\"modal\" data-target=\"#delete\">\n' );
+    document.write( '                    <i class=\"fa fa-trash\"></i>\n' );
+    document.write( '                  </a>\n' );
+    document.write( '                </span>\n' );
+    document.write( '              </div>\n' );
+    document.write( '            </div>' );  
+    document.write( '</div></div>' );
 
-              </script>
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-12">
-                    <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg"
-                      width="40" height="40" class="rounded-circle">
-                    <a href="#" class="btn btn-link color-black" id=""><u>User Name</u></a>
-                  </div>
-                </div>
-                <div class="row d-flex justify-content-center">
-                  <div class="col-8">
-                    <div class="row">
-                      <div class="col-4">
-                        <label for="Job Title" class="font-weight-bold ">Job: </label>
-                      </div>
-                      <div class="col-8">
-                        <p class="">Yard Work</p>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-4">
-                        <label for="time" class="font-weight-bold">Time: </label>
-                      </div>
-                      <div class="col-8">
-                        <p class="">8:00 AM</p>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-4">
-                        <label for="date" class="font-weight-bold">Date: </label>
+  }
+//function for displaying modal
 
-                      </div>
-                      <div class="col-8">
-                        <p class="d-inline">24/10/2019</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <span class="float-right">
-                  <a href="#" class="btn btn-light bg-darkish-blue mr-2" data-toggle="modal" data-target="#view-active">
-                    View
-                  </a>
-                  <a href="#" class="btn btn-danger delete" data-toggle="modal" data-target="#delete">
-                    <i class="fa fa-trash"></i>
-                  </a>
-                </span>
-              </div>
-            </div>
+
+
+
+</script>
 
 
 
           </div>
         </div>
-        <div class="row mb-2">
-          <div class="col-12 col-md-12" id="container1">
-            <div class="card" id="card2">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-12">
-                    <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg"
-                      width="40" height="40" class="rounded-circle">
-                    <a href="#" class="btn btn-link color-black" id=""><u>User Name</u></a>
-                  </div>
-                </div>
-                <div class="row d-flex justify-content-center">
-                  <div class="col-8">
-                    <div class="row">
-                      <div class="col-4">
-                        <label for="Job Title" class="font-weight-bold ">Job: </label>
-                      </div>
-                      <div class="col-8">
-                        <p class="">Yard Work</p>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-4">
-                        <label for="time" class="font-weight-bold">Time: </label>
-                      </div>
-                      <div class="col-8">
-                        <p class="">8:00 AM</p>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-4">
-                        <label for="date" class="font-weight-bold">Date: </label>
-
-                      </div>
-                      <div class="col-8">
-                        <p class="d-inline">24/10/2019</p>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-                <span class="float-right">
-                  <a href="#" class="btn btn-light bg-darkish-blue mr-2" data-toggle="modal" data-target="#view-active">
-                    View
-                  </a>
-                  <a href="#" class="btn btn-danger delete" data-toggle="modal" data-target="#delete1">
-                    <i class="fa fa-trash"></i>
-                  </a>
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
+       
       </div>
     </div>
     <div class="row">
@@ -631,12 +557,6 @@
     <!--search bar-->
   </div>
   <script>
-
-      var system = new System(JSON.parse(localStorage.getItem('SystemObjectData')));
-      var user = new User(JSON.parse(localStorage.getItem('User')));
-      system.setUser(user);
-      var userInfo = user.getInfo();
-      var allPosts = system.getAllPosts();
     $('#postData').click(function(){
 
       let title = $('#title').val();
