@@ -70,7 +70,7 @@ class User{
                 ]
             ];
             this.workHistory = [
-                [
+                /*[
                     1,//post id
                     1,//user id
                     "Painting:",//title
@@ -81,10 +81,10 @@ class User{
                     "8:00",//avaialble time
                     "24/10/2019",//AVIALABLE DATE
 
-                ]
+                ]*/
             ];
-            this.activeJobs =[
-                [
+            this.activeJobs = [
+               /* [
                     1,//post id
                     1,//user id
                     "Painting:",//title
@@ -95,10 +95,10 @@ class User{
                     "8:00",//avaialble time
                     "24/10/2019",//AVIALABLE DATE
 
-                ]
+                ]*/
             ];
             this.jobsTaken = [
-                [
+                /*[
                     1,//post id
                     1,//user id
                     "Painting:",//title
@@ -109,10 +109,12 @@ class User{
                     "8:00",//avaialble time
                     "24/10/2019",//AVIALABLE DATE
 
-                ]
+                ]*/
             ];
+            
         }
     }
+    
     getInfo()// TEST FUNCTION
     {
         return this.userInfo;
@@ -152,7 +154,7 @@ class System{
             this.user = null;
             //home page posts
             this.postData = [
-                [
+               /*  DEFAULT DATA[
                     0,//post id
                     1,//user id
                     "Painting:",//title
@@ -188,7 +190,7 @@ class System{
                     "26/10/2019",//AVIALABLE DATE
                     
                 ],
-                [
+                /*[
                     3,//post id
                     1,//user id
                     "Mechanic:",//title
@@ -199,7 +201,7 @@ class System{
                     "8:00",//avaialble time
                     "24/11/2019",//AVIALABLE DATE
                     
-                ]
+                ]*/
             ];
     
             this.allUsers =       
@@ -217,15 +219,52 @@ class System{
                     "IloveHCI"
                 ]
             ];
+            this.notifications = [
+            ];
+                //posts the user applied for
+            this.appliedJobs = [
+                [
+                    3,//post id
+                    1,//user id
+                    "Mechanic:",//title
+                    "Looking for someone to fix my Muffler",//description
+                    200,//payment
+                    "2 pineapple st.",//location
+                    3,//hours
+                    "8:00",//avaialble time
+                    "24/11/2019",//AVIALABLE DATE
+                    
+                ]
+            ];
         }
         else{
             console.log(sys);
             this.user = sys.user;
             this.postData = sys.postData;
             this.allUsers = sys.allUsers;
+            this.notifications = sys.notifications;
+            this.appliedJobs = sys.appliedJobs;
         }
-               
     }
+    applied(data)
+    {
+        for (let index = 0; index < this.appliedJobs.length; index++) {
+            if(JSON.stringify(data) == JSON.stringify(this.appliedJobs[index]))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    applyForJob(postId,postUserID,currentUserID)
+    {
+        let data = [currentUserID,postUserID,postId];
+        this.notifications.push(data);
+        let post = this.getPostAt(postId);
+        data = [currentUserID,post];
+        this.appliedJobs.push(data);
+    }
+
     getUserNameById(id)
     {
         for (let index = 0; index < this.allUsers.length; index++) {
@@ -234,7 +273,6 @@ class System{
             {
                 return userInfo[1];
             }
-            
         }
     }
 
@@ -361,7 +399,6 @@ class System{
     }
     addUserActiveJobs(data)
     {
-        console.log(data);
         if(this.user !== null){
             this.user.activeJobs.push(data);
             let posts= [];
@@ -373,6 +410,7 @@ class System{
             }
             this.postData = posts;
             console.log(this.postData);
+            return this;
 
         }
         else{

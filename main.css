@@ -16,6 +16,13 @@
   color: black;
   font-weight: 600;
 }
+.Apply:disabled
+{
+  border: 1px solid #999999;
+  background-color: #6e6e6e;
+  color:black;
+  opacity: 0.65; 
+}
 
 /*OLD CSS BELOW*/
 /* .user-icon{
