@@ -34,7 +34,19 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
   <script src="myjQuery.js"></script>
 
+  <script>
+    var system = new System(JSON.parse(localStorage.getItem('SystemObjectData')));
+    var user = JSON.parse(localStorage.getItem('User'));
+    console.log(user);
+    user = new User(JSON.parse(localStorage.getItem('User')));
+    console.log("user:");
+    console.log(user);
+    system.setUser(user);
+    localStorage.setItem('SystemObjectData',JSON.stringify(system));
 
+    var userInfo = user.getInfo();
+    var allPosts = system.getAllPosts();
+  </script>
 
 </head>
 <nav class="navbar navbar-expand-lg navbar-dark bg-blue">

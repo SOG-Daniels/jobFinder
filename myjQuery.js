@@ -6,17 +6,15 @@
 $('#submit').on('click',function(){
     let email = document.getElementById('inputEmail').value;
     let pass = document.getElementById('inputPassword').value;
-    console.log(localStorage.getItem('SystemObjectData'));
     let sys = new System(JSON.parse(localStorage.getItem('SystemObjectData')));
     let user = sys.findUser(email,pass);
-    console.log(user);
     if(user == null)
     {
       $('#signInError').html("Invalid credentials! Please try again.");
       $('#signInError').show();
     }
     else{
-      
+      sys.setUser(user);
       localStorage.setItem('SystemObjectData',JSON.stringify(sys));
       localStorage.setItem('User',JSON.stringify(user));
       location.assign("home.html");
@@ -29,11 +27,9 @@ $('#register').on('click',function(){
     let email = $('#inputEmail').val();
     let pass = $('#inputPassword').val();
     let verifyPass = $('#inputVerify').val();
-    console.log(localStorage.getItem('SystemObjectData'));
     let sys = JSON.parse(localStorage.getItem('SystemObjectData'));
 
     sys = new System(sys);
-    console.log(sys);
     if(sys.nameExist(name))
     {
       $('#signInError').html('User already exist! Please choose another name.');

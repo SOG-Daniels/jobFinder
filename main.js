@@ -6,7 +6,8 @@ class User{
             this.userInfo = userData.userInfo;
             this.workHistory = userData.workHistory;
             this.activeJobs = userData.activeJobs;
-            this.jobsTaken = userData.jobsTaken;
+            this.myVacancies = userData.myVacancies;
+            this.myVacancyHistory = user.myVacancyHistory;
         }
         else if(userData == null)
         {
@@ -18,7 +19,7 @@ class User{
                     "DefaultPassword"
                 ]
             ];
-            this.workHistory = [
+            this.workHistory = [// the users working history
                 [
                     1,//post id
                     1,//user id
@@ -32,7 +33,7 @@ class User{
 
                 ]
             ];
-            this.activeJobs =[
+            this.activeJobs =[//WORK THAT IS TAKEN
                 [
                     1,//post id
                     1,//user id
@@ -46,19 +47,10 @@ class User{
 
                 ]
             ];
-            this.jobsTaken = [
-                [
-                    1,//post id
-                    1,//user id
-                    "Painting:",//title
-                    "I need help painting my room",//description
-                    40,//payment
-                    "25 albert st.",//location
-                    3,//hours
-                    "8:00",//avaialble time
-                    "24/10/2019",//AVIALABLE DATE
 
-                ]
+            this.myVacancies = [
+            ];
+            this.myVacancyHistory = [
             ];
         }else if(userData[2] != null){
             this.userInfo = [
@@ -97,21 +89,10 @@ class User{
 
                 ]*/
             ];
-            this.jobsTaken = [
-                /*[
-                    1,//post id
-                    1,//user id
-                    "Painting:",//title
-                    "I need help painting my room",//description
-                    40,//payment
-                    "25 albert st.",//location
-                    3,//hours
-                    "8:00",//avaialble time
-                    "24/10/2019",//AVIALABLE DATE
-
-                ]*/
+            this.myVacancies = [
             ];
-            
+            this.myVacancyHistory = [
+            ];
         }
     }
     
@@ -127,10 +108,6 @@ class User{
     {
         return this.activeJobs;
     }
-    getJobsTaken(data)
-    {
-        return this.jobsTaken;
-    }
     //add post
     addWorkHistory(data)
     {
@@ -140,10 +117,7 @@ class User{
     {
         this.activeJobs.push(data);
     }
-    addJobsTaken(data)
-    {
-        this.jobsTaken.push(data);
-    }
+
 }
 
 class System{
@@ -238,13 +212,16 @@ class System{
             ];
         }
         else{
-            console.log(sys);
             this.user = sys.user;
             this.postData = sys.postData;
             this.allUsers = sys.allUsers;
             this.notifications = sys.notifications;
             this.appliedJobs = sys.appliedJobs;
         }
+    }
+    getUserVacancies()
+    {
+        return this.user.myVacancies;
     }
     applied(data)
     {
@@ -316,6 +293,7 @@ class System{
         if(data !== null)
         {
             this.postData.push(data);
+            this.user.myVacancies.push(data);
             console.log("Post was created! :function[createPost->system]");
         }
         else
@@ -325,10 +303,8 @@ class System{
     }
     findUser(email,pass)//gets the user that is stored in the database
     {
-        console.log(email);
-        console.log(pass);
+
         for (let index = 0; index < this.allUsers.length; index++) {
-            console.log(this,this.allUsers[index]);
             let user = this.allUsers[index];
             if(user[2] == email && user[3] == pass)
             {
@@ -349,6 +325,15 @@ class System{
     //must set user in the login page/ sets the datamember [user]
     setUser(user)
     {
+        let myPosts = [];
+        for (let index = 0; index < this.postData.length; index++) {
+            console.log(this.postData[index][1]);
+            if(this.postData[index][1] == user.userInfo[0][0])
+            {
+                myPosts.push(this.postData[index]);
+            }         
+        }
+        user.myVacancies = myPosts;
         this.user = user;
     }
 
@@ -374,17 +359,6 @@ class System{
             return null;
         }
     }
-    getUserJobsTaken()
-    {
-        if(this.user !== null)
-        {
-            return this.user.getJobsTaken();
-        }
-        else{
-            console.log("User does not exist to return jobs taken! :function[getUserJobsTaken->system]");
-            return null;
-        }
-    }
 
     addUserWorkHistory(data)
     {
@@ -405,8 +379,7 @@ class System{
             this.postData;
             for (let index = 0; index < this.postData.length; index++) {
                 if(index != data[0])
-                    posts.push(this.postData[index]);
-                
+                    posts.push(this.postData[index]); 
             }
             this.postData = posts;
             console.log(this.postData);
@@ -415,17 +388,6 @@ class System{
         }
         else{
             console.log("User does not exist to add active job! :function[addUserActiveJobs->system]");
-            return null;
-        }
-    }
-
-    addUserJobsTaken(data)
-    {
-        if(this.user !== null){
-            this.user.jobsTaken.push(data);
-        }
-        else{
-            console.log("User does not exist to add job taken! :function[getUserJobsTaken->system]");
             return null;
         }
     }
