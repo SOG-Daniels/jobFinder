@@ -197,18 +197,6 @@ class System{
             ];
                 //posts the user applied for
             this.appliedJobs = [
-                [
-                    3,//post id
-                    1,//user id
-                    "Mechanic:",//title
-                    "Looking for someone to fix my Muffler",//description
-                    200,//payment
-                    "2 pineapple st.",//location
-                    3,//hours
-                    "8:00",//avaialble time
-                    "24/11/2019",//AVIALABLE DATE
-                    
-                ]
             ];
         }
         else{
@@ -223,11 +211,10 @@ class System{
     {
         return this.user.myVacancies;
     }
-    applied(data)
+    applied(data,userId)
     {
-        console.log(data);
         for (let index = 0; index < this.appliedJobs.length; index++) {
-            if(JSON.stringify(data) == JSON.stringify(this.appliedJobs[index][1]))
+            if(this.appliedJobs[index][1][0]== data[0] && this.appliedJobs[index][1][1] == data[1] && userId == this.appliedJobs[index][0])
             {
                 return true;
             }

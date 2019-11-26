@@ -40,8 +40,8 @@
     var user = JSON.parse(localStorage.getItem('User'));
     console.log(user);
     user = new User(JSON.parse(localStorage.getItem('User')));
-    console.log("user:");
-    console.log(user);
+    console.log("system:");
+    console.log(system);
     system.setUser(user);
     localStorage.setItem('SystemObjectData',JSON.stringify(system));
 
@@ -228,7 +228,7 @@
           <span class="form-group">
             <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40"
               height="40" class="rounded-circle">
-            <a href="#" class="btn btn-link color-black" id=""><u>User Name</u></a>
+            <a href="#" class="btn btn-link color-black" id=""><u id="userName">User Name</u></a>
           </span>
           <span class="btn btn-light float-right bg-darkish-blue"><i class="fa fa-comments-o fa-2x"></i></span>
         </div>
@@ -240,7 +240,7 @@
                   <label for="Job Title" class="font-weight-bold ">Job: </label>
                 </div>
                 <div class="col-5 col-md-4">
-                  <p id="job-title">Yard Work</p>
+                  <p id="jobDone">Yard Work</p>
                 </div>
               </div>
               <div class="row">
@@ -283,7 +283,7 @@
                   <label for="location" class="font-weight-bold">Location: </label>
                 </div>
                 <div class="col-5 col-md-4">
-                  <p id="location">14 Tucan Str.</p>
+                  <p id="street">14 Tucan Str.</p>
                 </div>
               </div>
             </div>
@@ -396,7 +396,7 @@
             lc.innerHTML = allPosts[index][5];
             cardBody.appendChild(lc);
             var infoLink = document.createElement("a");
-            infoLink.setAttribute("class", "btn btn-light rounded info bg-darkish-blue");
+            infoLink.setAttribute("class", "btn btn-light rounded info bg-darkish-blue infoLink");
             infoLink.setAttribute("data-toggle", "modal");
             infoLink.setAttribute("data-target", "#show-info");
             var infoIcon = document.createElement("i");
@@ -408,7 +408,7 @@
             apply.setAttribute("data-toggle", "modal");
             apply.setAttribute("data-target", "#success");
 
-            if(system.applied(allPosts[index]))
+            if(system.applied(allPosts[index],userInfo[0][0]))
             {
               apply.setAttribute("disabled","true");
               apply.innerHTML = "Applied";
@@ -447,7 +447,8 @@
           localStorage.setItem('SystemObjectData', JSON.stringify(system));
           localStorage.setItem('User', JSON.stringify(system.getUser()));
 
-          
+          console.log(system);
+          console.log(user);
           /*
         system = system.addUserActiveJobs(system.getPostAt(postId));
 
@@ -483,6 +484,39 @@
           console.log(system);
           localStorage.setItem('SystemObjectData', JSON.stringify(system));
           localStorage.setItem('User', JSON.stringify(system.getUser()));
+        });
+
+        $(".infoLink").click(function(e){
+          console.log(e);
+          let parent = e.target.closest(".card");
+          let parentId = parent.id;
+
+          let ID = parentId.split('*');
+          //IDs[0] -> postID IDs[1] -> userId
+          let postId = parseInt(ID[0]);
+          let userId = parseInt(ID[1]);
+          let post = system.getPostAt(postId);
+          console.log(post);
+
+          let tempEl = document.getElementById("userName");
+          tempEl.innerHTML = system.getUserNameById(userId);
+          tempEl = document.getElementById("jobDone");
+          tempEl.innerHTML = post[2];
+
+          tempEl = document.getElementById("job-description");
+          tempEl.innerHTML = post[3];
+
+          tempEl = document.getElementById("time-taken");
+          tempEl.innerHTML = post[6];
+
+          tempEl = document.getElementById("time");
+          tempEl.innerHTML = post[7];
+
+          tempEl = document.getElementById("date");
+          tempEl.innerHTML = post[8];
+
+          tempEl = document.getElementById("street");
+          tempEl.innerHTML = post[5];          
         });
         var profilePage = document.getElementById("profilePage");
       profilePage.href = "./profile.html?userId=" + userInfo[0][0].toString();
