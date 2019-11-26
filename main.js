@@ -225,8 +225,9 @@ class System{
     }
     applied(data)
     {
+        console.log(data);
         for (let index = 0; index < this.appliedJobs.length; index++) {
-            if(JSON.stringify(data) == JSON.stringify(this.appliedJobs[index]))
+            if(JSON.stringify(data) == JSON.stringify(this.appliedJobs[index][1]))
             {
                 return true;
             }
@@ -286,6 +287,18 @@ class System{
         else{
             console.log("Could not get post at location"+ location.toString()+" :function[getPostAt]");
         }*/
+    }
+    removePostAt(id)
+    {
+        let myPosts = [];
+        for (let index = 0; index < this.postData.length; index++) {
+            if(this.postData[index][0] != id)
+            {
+                myPosts.push(this.postData[index]);
+            }         
+        }
+
+        this.postData = myPosts;
     }
     //data must be an array of 5
     createPost(data)
