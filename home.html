@@ -290,7 +290,7 @@
           </div>
           <div class="row">
             <div class="col-12 form-group">
-              <button type="button" class="btn btn-secondary" style="text-align: center;" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-secondary" style="text-align: center;"
                 data-dismiss="modal">Close</button>
             </div>
           </div>
@@ -433,7 +433,7 @@
           */
           let target = e.target;
           target.innerHTML = "Applied";
-          target.setAttribute("disabled","true");
+          target.setAttribute("disabled", "true");
 
           let parent = e.target.closest('.card').cloneNode(true);
           let parentId = parent.id;
@@ -444,7 +444,7 @@
           let userId = parseInt(ID[1]);
           let currentUserId = userInfo[0][0];
 
-          system.applyForJob(postId,userId,currentUserId);
+          system.applyForJob(postId, userId, currentUserId);
           localStorage.setItem('SystemObjectData', JSON.stringify(system));
           localStorage.setItem('User', JSON.stringify(system.getUser()));
 
