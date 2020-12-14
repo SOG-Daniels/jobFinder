@@ -25,29 +25,28 @@
           <div class="card-body">
             <h5 class="card-title text-center">Sign In</h5>
             <hr>
-            <form class="form-signin">
-              <div class="alert alert-danger" id="signInError" role="alert">error</div>
+            <div class="form-signin">
+              <div class="alert alert-danger text-center" id="signInError" role="alert">error</div>
               <div class="form-label-group">
                 <label for="inputEmail">Email address</label>
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
               </div>
 
               <div class="form-label-group">
                 <label for="inputPassword">Password</label>
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
               </div>
 
               <div class="custom-control custom-checkbox mb-3">
                 <input type="checkbox" class="custom-control-input" id="customCheck1">
                 <label class="custom-control-label" for="customCheck1">Remember password</label>
               </div>
-              <button class="btn btn-light bg-darkish-blue btn-block text-uppercase" type="button" id="submit">Sign
-                in</button>
+              <input class="btn btn-light bg-darkish-blue btn-block text-uppercase" id="submit1"<?php // ?> type="submit" value="Sign In" >
               <hr class="my-4">
               <div class="form-group">
                 <p class="text-center">Don't have account? <a href="signUp.html" id="signup">Sign up here</a></p>
               </div>
-            </form>
+            </div>
           </div>
         </div>
       </div>
@@ -65,12 +64,36 @@
     crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
   <script src="myjQuery.js"></script>
-
   <script>
-    $(document).ready(function () { $('#signInError').hide(); });
+    $(document).ready(function () { 
+      $('#signInError').hide(); 
+    });
     localStorage.removeItem('User');
-  </script>
 
+    $(function(){
+      $("#submit1").click(function(){
+        var email = $("#inputEmail").val().trim();
+        var pass = $("#inputPassword").val().trim();
+        var msg= "";
+        if(email != "" && pass != ""){
+          $.post("./config/user_validation.php",{email:email,pass:pass}).done(function(response){
+            if(response == "success")
+              {
+               window.location = "home.php";
+               msg = "";
+              }else{
+                console.log("fail");
+                msg = "Invalid username and password";
+              }
+              $("#signInError").html(msg);
+              $('#signInError').show();
+          });
+        }
+      });
+    });
+    /* Ajax to login to website [home.php]*/
+
+  </script>
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 

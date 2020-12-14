@@ -1,3 +1,6 @@
+<?php
+
+?>
 <!doctype html>
 <html lang="en">
 
@@ -17,9 +20,8 @@
   <link rel="stylesheet" href="main.css">
   <!--     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"> -->
 
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  <script src="main.js"></script>
-
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) 
+  <script src="main.js"></script>-->
 
   <!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script> -->
   <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -34,7 +36,7 @@
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-  <script src="myjQuery.js"></script>
+  <!-- <script src="myjQuery.js"></script>
   <script>
     var system = new System(JSON.parse(localStorage.getItem('SystemObjectData')));
     var user = JSON.parse(localStorage.getItem('User'));
@@ -47,7 +49,7 @@
 
     var userInfo = user.getInfo();
     var allPosts = system.getAllPosts();
-  </script>
+  </script>-->
 </head>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-blue">
@@ -323,7 +325,7 @@
         </div>
       </div>
 
-      <script>
+    <!--  <script>
         //load posts
 
         for (let index = 0; index < allPosts.length; index++) {
@@ -524,6 +526,7 @@
         document.getElementById("userProfileIcon").href = "./profile.html?userId=" + userInfo[0][0].toString();
 
       </script>
-</body>
 
+      -->    
+</body>
 </html>
