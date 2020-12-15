@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
   <div class="container">
@@ -41,7 +41,7 @@
                 <input type="checkbox" class="custom-control-input" id="customCheck1">
                 <label class="custom-control-label" for="customCheck1">Remember password</label>
               </div>
-              <input class="btn btn-light bg-darkish-blue btn-block text-uppercase" id="submit1"<?php // ?> type="submit" value="Sign In" >
+              <input class="btn btn-light bg-darkish-blue btn-block text-uppercase" id="submit1" type="submit" value="Sign In" >
               <hr class="my-4">
               <div class="form-group">
                 <p class="text-center">Don't have account? <a href="signUp.html" id="signup">Sign up here</a></p>
@@ -64,36 +64,7 @@
     crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
   <script src="myjQuery.js"></script>
-  <script>
-    $(document).ready(function () { 
-      $('#signInError').hide(); 
-    });
-    localStorage.removeItem('User');
-
-    $(function(){
-      $("#submit1").click(function(){
-        var email = $("#inputEmail").val().trim();
-        var pass = $("#inputPassword").val().trim();
-        var msg= "";
-        if(email != "" && pass != ""){
-          $.post("./config/user_validation.php",{email:email,pass:pass}).done(function(response){
-            if(response == "success")
-              {
-               window.location = "home.php";
-               msg = "";
-              }else{
-                console.log("fail");
-                msg = "Invalid username and password";
-              }
-              $("#signInError").html(msg);
-              $('#signInError').show();
-          });
-        }
-      });
-    });
-    /* Ajax to login to website [home.php]*/
-
-  </script>
+  <script src="./js/script.js"></script>
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 
