@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en ">
-testing
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,7 +15,7 @@ testing
 </head>
 <body>
   <div class="container">
-    <div class="row row-content">
+    <div class="row">
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
         <div class="card card-signin my-5 border-shadow">
           <div class="card-header">

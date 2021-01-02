@@ -326,7 +326,8 @@
     </div>
   </div>
   <!-- Modal ends -->
-  <div class="container row-content">
+  <div class="row-content">
+  <div class="container">
     <div class="row mt-1">
       <div class="col-md-12">
         <div class="row justify-content-md-center">
@@ -345,6 +346,12 @@
         </div>
       </div>
     </div>   
+  </div>
+  <div class="row">
+      <div class="col-md-12">
+      
+      </div>
+  </div>
   </div>
 </body>
 </html>

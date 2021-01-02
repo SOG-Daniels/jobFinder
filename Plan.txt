@@ -1,8 +1,8 @@
 Update Pages
 tasks
  1. myVacancies.html needs tabular functionality
- 1. move post vacancy button from the navbar to the home page
-
+ 2. move post vacancy button from the navbar to the home page
+ 3. update post vacancy available time/date and estimated time for user choice
  COMMENTS
  1. There needs to be a distinction between your active posts, the posts you are working one; 
     your posting history, and your working history
